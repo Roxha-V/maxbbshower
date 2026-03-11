@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { weddingConfig } from '@/config/weddingConfig';
 import { Play, Pause } from 'lucide-react';
@@ -151,19 +152,27 @@ const MusicPlayer = () => {
 
     return (
       <>
-        {/* Overlay "Tocá para escuchar": se oculta al primer toque y ayuda a desbloquear audio en móviles */}
-        {showUnlockHint && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/20 backdrop-blur-[2px]"
-              onClick={() => setShowUnlockHint(false)}
-            style={{ touchAction: 'manipulation' }}
+        {/* Overlay "Tocá para escuchar": renderizado en body para que siempre esté encima */}
+        {showUnlockHint && createPortal(
+          <div
+            role="dialog"
+            aria-label="Activar música"
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 99999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'rgba(0,0,0,0.4)',
+              backdropFilter: 'blur(4px)',
+            }}
+            onClick={() => setShowUnlockHint(false)}
           >
             <button
               type="button"
-              className="rounded-full bg-white/95 px-6 py-3 text-sm font-medium text-foreground shadow-lg hover:bg-white"
+              className="rounded-full bg-white px-6 py-4 text-base font-semibold text-gray-900 shadow-xl hover:bg-gray-100 active:scale-95 transition"
+              style={{ touchAction: 'manipulation' }}
               onClick={(e) => {
                 e.stopPropagation();
                 setShowUnlockHint(false);
@@ -172,13 +181,14 @@ const MusicPlayer = () => {
             >
               🎵 Tocá para escuchar la música
             </button>
-          </motion.div>
+          </div>,
+          document.body
         )}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-4 right-4 z-50 flex items-center gap-2"
+          className="fixed bottom-4 right-4 z-[9999] flex items-center gap-2"
         >
           {/* Botón Play/Pause pequeño */}
           <Button
