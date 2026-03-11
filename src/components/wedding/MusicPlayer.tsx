@@ -5,24 +5,56 @@ import { Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const MusicPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(true); // Encendido por defecto al abrir la web; solo se apaga si el usuario pausa
+  // Con Spotify la música no arranca sola; con audio directo intentamos autoplay
+  const [isPlaying, setIsPlaying] = useState(!weddingConfig.music.spotifyEmbed);
+  const [showUnlockHint, setShowUnlockHint] = useState(true); // Overlay "Tocá para escuchar" hasta primera interacción
   const audioRef = useRef<HTMLAudioElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playButtonRef = useRef<HTMLButtonElement>(null);
 
+  // Auto-play para audio directo: cuando el audio esté listo y en el mount
   useEffect(() => {
-    // Auto-play para audio directo (intentar después de un delay)
-    if (audioRef.current && weddingConfig.music.audioUrl) {
-      const timer = setTimeout(() => {
-        audioRef.current?.play()
-          .then(() => setIsPlaying(true))
-          .catch(() => {
-            // Si el navegador bloquea autoplay, el usuario deberá hacer clic en Play
-            setIsPlaying(false);
-          });
-      }, 800);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+    if (!weddingConfig.music.audioUrl) return;
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const tryPlay = () => {
+      audio.play()
+        .then(() => {
+          setIsPlaying(true);
+          setShowUnlockHint(false);
+        })
+        .catch(() => setIsPlaying(false));
+    };
+
+    const timer = setTimeout(tryPlay, 500);
+    audio.addEventListener('canplaythrough', tryPlay);
+    return () => {
+      clearTimeout(timer);
+      audio.removeEventListener('canplaythrough', tryPlay);
+    };
+  }, [weddingConfig.music.audioUrl]);
+
+  // Primer toque/clic en la página: ocultar hint y intentar play (útil para Spotify y cuando el navegador bloquea autoplay)
+  useEffect(() => {
+    if (!weddingConfig.music.enabled) return;
+    const handleFirstInteraction = () => {
+      setShowUnlockHint(false);
+      if (weddingConfig.music.spotifyEmbed && playButtonRef.current && !isPlaying) {
+        playButtonRef.current.click();
+      }
+      if (weddingConfig.music.audioUrl && audioRef.current && !isPlaying) {
+        audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      }
+    };
+    const opts = { capture: true, once: true };
+    document.addEventListener('click', handleFirstInteraction, opts);
+    document.addEventListener('touchstart', handleFirstInteraction, opts);
+    return () => {
+      document.removeEventListener('click', handleFirstInteraction, opts);
+      document.removeEventListener('touchstart', handleFirstInteraction, opts);
+    };
+  }, [weddingConfig.music.enabled, weddingConfig.music.spotifyEmbed, weddingConfig.music.audioUrl, isPlaying]);
 
   // Controlar audio directo
   const toggleAudio = () => {
@@ -114,11 +146,34 @@ const MusicPlayer = () => {
     const spotifyUrl = getSpotifyUrl(weddingConfig.music.spotifyEmbed);
     // Agregar autoplay a la URL de Spotify si es posible
     const spotifyEmbedUrl = weddingConfig.music.spotifyEmbed.includes('?')
-      ? `${weddingConfig.music.spotifyEmbed}&autoplay=true`
-      : `${weddingConfig.music.spotifyEmbed}?autoplay=true`;
-    
+      ? `${weddingConfig.music.spotifyEmbed}&autoplay=1`
+      : `${weddingConfig.music.spotifyEmbed}?autoplay=1`;
+
     return (
       <>
+        {/* Overlay "Tocá para escuchar": se oculta al primer toque y ayuda a desbloquear audio en móviles */}
+        {showUnlockHint && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/20 backdrop-blur-[2px]"
+              onClick={() => setShowUnlockHint(false)}
+            style={{ touchAction: 'manipulation' }}
+          >
+            <button
+              type="button"
+              className="rounded-full bg-white/95 px-6 py-3 text-sm font-medium text-foreground shadow-lg hover:bg-white"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowUnlockHint(false);
+                handleSpotifyPlayPause();
+              }}
+            >
+              🎵 Tocá para escuchar la música
+            </button>
+          </motion.div>
+        )}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -127,6 +182,7 @@ const MusicPlayer = () => {
         >
           {/* Botón Play/Pause pequeño */}
           <Button
+            ref={playButtonRef}
             variant="secondary"
             size="icon"
             onClick={handleSpotifyPlayPause}
@@ -185,7 +241,6 @@ const MusicPlayer = () => {
             frameBorder="0"
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
             style={{ borderRadius: '12px' }}
           />
         </div>
