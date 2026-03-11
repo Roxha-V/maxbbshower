@@ -145,34 +145,42 @@ const MusicPlayer = () => {
   // Si hay un embed de Spotify
   if (weddingConfig.music.spotifyEmbed) {
     const spotifyUrl = getSpotifyUrl(weddingConfig.music.spotifyEmbed);
-    // Agregar autoplay a la URL de Spotify si es posible
     const spotifyEmbedUrl = weddingConfig.music.spotifyEmbed.includes('?')
       ? `${weddingConfig.music.spotifyEmbed}&autoplay=1`
       : `${weddingConfig.music.spotifyEmbed}?autoplay=1`;
 
-    return (
+    const spotifyUI = (
       <>
-        {/* Overlay "Tocá para escuchar": renderizado en body para que siempre esté encima */}
-        {showUnlockHint && createPortal(
+        {/* Overlay "Tocá para escuchar" */}
+        {showUnlockHint && (
           <div
             role="dialog"
             aria-label="Activar música"
             style={{
               position: 'fixed',
               inset: 0,
-              zIndex: 99999,
+              zIndex: 2147483647,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: 'rgba(0,0,0,0.4)',
-              backdropFilter: 'blur(4px)',
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              backdropFilter: 'blur(6px)',
             }}
             onClick={() => setShowUnlockHint(false)}
           >
             <button
               type="button"
-              className="rounded-full bg-white px-6 py-4 text-base font-semibold text-gray-900 shadow-xl hover:bg-gray-100 active:scale-95 transition"
-              style={{ touchAction: 'manipulation' }}
+              style={{
+                padding: '16px 28px',
+                borderRadius: '9999px',
+                backgroundColor: '#fff',
+                color: '#111',
+                fontSize: '18px',
+                fontWeight: 600,
+                boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
+                border: 'none',
+                cursor: 'pointer',
+              }}
               onClick={(e) => {
                 e.stopPropagation();
                 setShowUnlockHint(false);
@@ -181,16 +189,20 @@ const MusicPlayer = () => {
             >
               🎵 Tocá para escuchar la música
             </button>
-          </div>,
-          document.body
+          </div>
         )}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-4 right-4 z-[9999] flex items-center gap-2"
+        {/* Botones flotantes */}
+        <div
+          style={{
+            position: 'fixed',
+            bottom: 16,
+            right: 16,
+            zIndex: 2147483646,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          }}
         >
-          {/* Botón Play/Pause pequeño */}
           <Button
             ref={playButtonRef}
             variant="secondary"
@@ -205,8 +217,6 @@ const MusicPlayer = () => {
               <Play className="h-4 w-4 text-white" />
             )}
           </Button>
-
-          {/* Un solo botón: Spotify / Playlist → abre la lista (colaborativa si está configurada, sino la del embed) */}
           <Button
             variant="ghost"
             size="sm"
@@ -224,38 +234,37 @@ const MusicPlayer = () => {
             </svg>
             <span className="text-sm font-medium">{weddingConfig.music.collaborativePlaylistUrl ? "Playlist" : "Spotify"}</span>
           </Button>
-        </motion.div>
-
-        {/* Iframe de Spotify - debe estar visible en el viewport para funcionar */}
-        {/* Está detrás de todo (z-index negativo) pero aún visible en el viewport */}
-        <div 
-          className="fixed"
-          style={{ 
-            left: '4px',
-            bottom: '80px',
-            width: '300px', 
-            height: '80px',
-            opacity: 0.01, // Casi invisible pero visible para Spotify
-            pointerEvents: 'none', // No interfiere con clics
-            zIndex: -1, // Detrás de todo
+        </div>
+        {/* Iframe Spotify (oculto pero en viewport) */}
+        <div
+          style={{
+            position: 'fixed',
+            left: 4,
+            bottom: 80,
+            width: 300,
+            height: 80,
+            opacity: 0.02,
+            pointerEvents: 'none',
+            zIndex: -1,
             transform: 'scale(0.3)',
-            transformOrigin: 'bottom left'
+            transformOrigin: 'bottom left',
           }}
         >
           <iframe
             ref={iframeRef}
-            data-testid="embed-iframe"
+            title="Spotify"
             src={spotifyEmbedUrl}
             width="100%"
             height="80"
             frameBorder="0"
-            allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            style={{ borderRadius: '12px' }}
+            style={{ borderRadius: 12 }}
           />
         </div>
       </>
     );
+
+    return createPortal(spotifyUI, document.body);
   }
 
   // Si hay una URL de audio directo
