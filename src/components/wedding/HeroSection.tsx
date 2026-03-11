@@ -42,7 +42,8 @@ const HeroSection = () => {
             className="w-full h-full bg-cover bg-center"
             style={{ backgroundImage: `url(${images[currentImage]})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
+            {/* Overlay más oscuro para que el texto blanco se lea bien sobre fotos B/N */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/55 to-black/65" />
           </div>
         </motion.div>
       </AnimatePresence>
@@ -96,7 +97,7 @@ const HeroSection = () => {
           {/* Título "¡Nuestra Boda!" */}
           {weddingConfig.hero?.title && (
             <motion.p
-              className="font-accent text-white/95 text-2xl md:text-3xl tracking-wide"
+              className="font-accent text-white text-2xl md:text-3xl tracking-wide hero-text-shadow"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -107,7 +108,7 @@ const HeroSection = () => {
 
           {/* Nombres de los novios */}
           <motion.h1
-            className="font-display text-5xl md:text-7xl lg:text-8xl text-white text-shadow-soft drop-shadow-2xl"
+            className="font-display text-5xl md:text-7xl lg:text-8xl text-white hero-text-shadow"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
@@ -118,7 +119,7 @@ const HeroSection = () => {
           {/* Cita bíblica - más grande y destacada */}
           {weddingConfig.hero?.bibleRef && (
             <motion.p
-              className="font-body text-white/90 text-base md:text-lg"
+              className="font-body text-white text-base md:text-lg hero-text-shadow"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.9 }}
@@ -128,7 +129,7 @@ const HeroSection = () => {
           )}
           {weddingConfig.hero?.bibleQuote && (
             <motion.p
-              className="font-accent text-white/95 text-lg md:text-xl lg:text-2xl italic max-w-xl mx-auto leading-relaxed"
+              className="font-accent text-white text-lg md:text-xl lg:text-2xl italic max-w-xl mx-auto leading-relaxed hero-text-shadow"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -140,7 +141,7 @@ const HeroSection = () => {
           {/* "Nuestro sí para siempre" */}
           {weddingConfig.hero?.ourYes && (
             <motion.p
-              className="font-accent text-white/95 text-xl md:text-2xl lg:text-3xl"
+              className="font-accent text-white text-xl md:text-2xl lg:text-3xl hero-text-shadow"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.1 }}
@@ -151,7 +152,7 @@ const HeroSection = () => {
 
           {/* Fecha - más grande */}
           <motion.p
-            className="font-body text-white/95 text-xl md:text-2xl lg:text-3xl font-medium"
+            className="font-body text-white text-xl md:text-2xl lg:text-3xl font-medium hero-text-shadow"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}

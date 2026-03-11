@@ -5,7 +5,7 @@ import { Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const MusicPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(false); // Iniciar en false (pausado) - el usuario debe hacer clic
+  const [isPlaying, setIsPlaying] = useState(true); // Encendido por defecto al abrir la web; solo se apaga si el usuario pausa
   const audioRef = useRef<HTMLAudioElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -16,10 +16,10 @@ const MusicPlayer = () => {
         audioRef.current?.play()
           .then(() => setIsPlaying(true))
           .catch(() => {
-            // Si el navegador bloquea autoplay, el usuario deberá hacer clic
+            // Si el navegador bloquea autoplay, el usuario deberá hacer clic en Play
             setIsPlaying(false);
           });
-      }, 1000);
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -140,22 +140,23 @@ const MusicPlayer = () => {
             )}
           </Button>
 
-          {/* Icono de Spotify que redirige a la playlist */}
+          {/* Un solo botón: Spotify / Playlist → abre la lista (colaborativa si está configurada, sino la del embed) */}
           <Button
             variant="ghost"
-            size="icon"
-            onClick={() => window.open(spotifyUrl, '_blank')}
-            className="w-10 h-10 rounded-full bg-[#1DB954] hover:bg-[#1ed760] shadow-elegant"
-            title="Abrir en Spotify"
+            size="sm"
+            onClick={() => window.open(weddingConfig.music.collaborativePlaylistUrl || spotifyUrl, '_blank')}
+            className="rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-white shadow-elegant gap-2 px-4"
+            title={weddingConfig.music.collaborativePlaylistUrl ? "Ver playlist y sumar tu tema" : "Abrir en Spotify"}
           >
             <svg
-              className="h-5 w-5 text-white"
+              className="h-5 w-5 shrink-0"
               fill="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.84-.179-.84-.66 0-.359.24-.66.54-.779 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.242 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z" />
             </svg>
+            <span className="text-sm font-medium">{weddingConfig.music.collaborativePlaylistUrl ? "Playlist" : "Spotify"}</span>
           </Button>
         </motion.div>
 

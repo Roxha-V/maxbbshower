@@ -46,7 +46,7 @@ const Location = () => {
               
               <Button 
                 onClick={handleOpenMaps}
-                className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-foreground font-semibold"
+                className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold"
                 size="lg"
               >
                 <Navigation className="w-5 h-5 mr-2" />

@@ -33,9 +33,9 @@ export const designThemes: Record<DesignTheme, ThemeConfig> = {
     description: 'Diseño clásico con tonos dorados, blush y tipografía serif elegante',
     preview: '/placeholder.svg',
     colors: {
-      primary: '35 70% 75%', // Champagne Gold
+      primary: '38 72% 48%', // Dorado visible sobre blanco
       secondary: '350 75% 90%', // Blush Rose
-      accent: '45 80% 65%', // Rich Gold
+      accent: '43 82% 52%', // Dorado intenso
       background: '40 40% 97%',
       foreground: '0 0% 25%',
       muted: '40 30% 94%'

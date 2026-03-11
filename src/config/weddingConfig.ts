@@ -62,7 +62,11 @@ export const weddingConfig = {
     // URL de embed de Spotify (track o playlist). Ej: https://open.spotify.com/embed/track/...
     spotifyEmbed: (import.meta.env.VITE_MUSIC_SPOTIFY_EMBED && import.meta.env.VITE_MUSIC_SPOTIFY_EMBED.trim() !== "")
       ? import.meta.env.VITE_MUSIC_SPOTIFY_EMBED
-      : "https://open.spotify.com/embed/track/2BkIuKSt6d4eIQ7j37YilC"
+      : "https://open.spotify.com/embed/track/2BkIuKSt6d4eIQ7j37YilC",
+    // Playlist colaborativa: link para que los invitados agreguen temas (crear playlist en Spotify y ponerla "Colaborativa")
+    collaborativePlaylistUrl: (import.meta.env.VITE_MUSIC_COLLABORATIVE_PLAYLIST_URL && import.meta.env.VITE_MUSIC_COLLABORATIVE_PLAYLIST_URL.trim() !== "")
+      ? import.meta.env.VITE_MUSIC_COLLABORATIVE_PLAYLIST_URL.trim()
+      : "",
   },
 
   // Historia de los novios
