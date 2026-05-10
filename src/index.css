@@ -1,81 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Quicksand:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Wedding Invitation Design System */
+/* Bosque encantado · invitación editorial cálida */
 
 @layer base {
   :root {
-    /* Wedding Color Palette - Elegant Romance */
-    --background: 40 40% 97%;
-    --foreground: 0 0% 25%;
+    /* Sincronizado con enchantedForestCssVars (InvitationRomantic lo aplica al montar) */
+    --background: 36 42% 81%;
+    --foreground: 154 36% 13%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 25%;
+    --card: 34 48% 89%;
+    --card-foreground: 154 34% 14%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 25%;
+    --popover: 36 46% 91%;
+    --popover-foreground: 154 34% 14%;
 
-    /* Primary - Dorado visible (más oscuro para contraste con blanco) */
-    --primary: 38 72% 48%;
-    --primary-foreground: 40 30% 98%;
+    --primary: 154 34% 18%;
+    --primary-foreground: 42 78% 97%;
 
-    /* Secondary - Blush Rose */
-    --secondary: 350 75% 90%;
-    --secondary-foreground: 0 0% 25%;
+    --secondary: 92 28% 74%;
+    --secondary-foreground: 154 30% 15%;
 
-    /* Muted - Soft Cream */
-    --muted: 40 30% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 90 24% 72%;
+    --muted-foreground: 148 22% 26%;
 
-    /* Accent - Dorado intenso (se ve bien sobre blanco) */
-    --accent: 43 82% 52%;
-    --accent-foreground: 40 30% 98%;
+    --accent: 34 72% 46%;
+    --accent-foreground: 154 40% 11%;
 
-    /* Rose Accent */
-    --rose: 350 60% 75%;
-    --rose-foreground: 0 0% 20%;
+    --rose: 28 44% 88%;
+    --rose-foreground: 154 28% 17%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 43 72% 98%;
 
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 38 72% 48%;
+    --border: 34 32% 62%;
+    --input: 36 36% 72%;
+    --ring: 154 30% 28%;
 
-    --radius: 1rem;
+    --radius: 1.25rem;
 
-    /* Custom Design Tokens - dorados más visibles */
-    --gradient-romantic: linear-gradient(135deg, hsl(350, 75%, 90%), hsl(38, 72%, 55%));
-    --gradient-gold: linear-gradient(135deg, hsl(43, 82%, 52%), hsl(38, 72%, 48%));
-    --gradient-subtle: linear-gradient(180deg, hsl(40, 40%, 97%), hsl(0, 0%, 100%));
-    
-    --shadow-elegant: 0 10px 40px -10px hsl(38 72% 48% / 0.35);
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 40px hsl(43 82% 52% / 0.45);
+    --gradient-romantic: linear-gradient(
+      168deg,
+      hsl(36 44% 82%) 0%,
+      hsl(92 26% 74% / 0.65) 40%,
+      hsl(154 24% 74% / 0.55) 100%
+    );
+    --gradient-gold: linear-gradient(
+      130deg,
+      hsl(40 58% 54%) 0%,
+      hsl(34 48% 42%) 100%
+    );
+    --gradient-panel: linear-gradient(
+      152deg,
+      hsl(var(--card) / 0.78) 0%,
+      hsl(34 42% 92% / 0.68) 52%,
+      hsl(92 22% 87% / 0.72) 100%
+    );
 
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --shadow-elegant: 0 12px 42px -16px hsl(152 35% 12% / 0.28),
+      0 4px 22px -12px hsl(38 40% 28% / 0.12);
+    --shadow-soft: 0 6px 26px -10px hsl(152 26% 14% / 0.16);
+    --shadow-glow: 0 0 48px hsl(40 58% 52% / 0.26),
+      0 0 24px hsl(90 32% 74% / 0.45);
+
+    --transition-smooth: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 
+    --enchant-twinkle-duration: 4.5s;
+  }
 }
 
 @layer base {
@@ -85,49 +88,484 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
-    font-feature-settings: "kern" 1;
+    font-feature-settings: 'kern' 1;
+    letter-spacing: 0.01em;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display;
   }
 
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
   }
 
   .font-body {
-    font-family: 'Lora', serif;
+    font-family: 'Quicksand', system-ui, sans-serif;
   }
 
+  /** “Acento”: misma familia display en cursiva elegante (solo 2 fuentes en total) */
   .font-accent {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
   }
 }
 
 @layer components {
+  .invite-section-title {
+    @apply font-display font-semibold text-foreground;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.8125rem, 5vw, 2.875rem);
+    line-height: 1.1;
+    font-weight: 600;
+  }
+
+  .invite-section-sub {
+    @apply font-display italic text-primary/90 font-medium mx-auto;
+    font-size: clamp(0.9375rem, 2.85vw, 1.125rem);
+    letter-spacing: 0.04em;
+    max-width: 28rem;
+  }
+
+  .invite-section-lead {
+    @apply font-body text-foreground/90 leading-relaxed mx-auto font-medium;
+    font-size: clamp(0.97rem, 2.95vw, 1.11rem);
+    max-width: 38rem;
+  }
+
+  .invite-kicker {
+    @apply font-display italic text-accent font-medium;
+    font-size: clamp(1.125rem, 3.2vw, 1.35rem);
+    letter-spacing: 0.03em;
+  }
+
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 lg:py-24;
+    position: relative;
+    @apply max-w-7xl mx-auto w-full;
+    padding-left: clamp(1.125rem, 5vw, 2rem);
+    padding-right: clamp(1.125rem, 5vw, 2rem);
+    padding-top: clamp(2.5rem, 8vw, 4.85rem);
+    padding-bottom: clamp(2.5rem, 8vw, 4.85rem);
+  }
+
+  /* RSVP + playlist: mismo “capítulo” sin corte abrupto entre secciones */
+  .invite-section-rsvp {
+    padding-bottom: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  section#playlist.section-container {
+    padding-top: clamp(1rem, 4vw, 1.75rem);
+  }
+
+  .section-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: min(90%, 42rem);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--accent) / 0.45) 42%,
+      hsl(var(--primary) / 0.3) 58%,
+      transparent 100%
+    );
+    opacity: 0.65;
+    pointer-events: none;
   }
 
   .elegant-divider {
-    @apply h-px bg-gradient-to-r from-transparent via-primary to-transparent my-8 md:my-12;
+    height: 2px;
+    border-radius: 9999px;
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--accent) / 0.5) 46%,
+      hsl(var(--secondary)) 100%,
+      transparent 100%
+    );
+    box-shadow: 0 0 18px hsl(var(--accent) / 0.2);
+  }
+
+  @media (min-width: 768px) {
+    .elegant-divider {
+      margin-top: 2.25rem;
+      margin-bottom: 2.25rem;
+    }
+  }
+
+  .hero-text-shadow {
+    text-shadow:
+      0 1px 3px rgba(8, 28, 22, 0.55),
+      0 2px 24px rgba(10, 42, 28, 0.5),
+      0 4px 42px rgba(6, 26, 22, 0.35);
   }
 
   .text-shadow-soft {
-    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.1);
+    text-shadow: 0 2px 12px hsl(152 40% 8% / 0.25);
   }
 
-  /* Sombra fuerte para texto blanco sobre fotos (hero) - buena lectura sobre B/N */
-  .hero-text-shadow {
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.8),
-      0 2px 8px rgba(0, 0, 0, 0.6),
-      0 4px 16px rgba(0, 0, 0, 0.5);
+  .fairy-garland-row {
+    position: relative;
+    max-width: clamp(10rem, 40vw, 16rem);
+    margin-left: auto;
+    margin-right: auto;
+    height: 12px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    opacity: 0.72;
+    background: radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.75) 2px, transparent 3px)
+      repeat-x center / 20px 12px;
+    filter: drop-shadow(0 0 6px hsl(var(--accent) / 0.35));
+  }
+
+  .fairy-soft-card {
+    transition: border-color 0.45s ease, box-shadow 0.45s ease, transform 0.4s ease;
+  }
+
+  @media (hover: hover) {
+    .fairy-soft-card:hover {
+      transform: translateY(-2px);
+      border-color: hsl(var(--accent) / 0.35);
+      box-shadow: var(--shadow-soft), 0 0 40px hsl(var(--accent) / 0.14);
+    }
+  }
+
+  /** Página · atardecer en el bosque + pergamino (menos plano, más atmósfera) */
+  .enchanted-invitation {
+    position: relative;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% -20%, hsl(34 62% 88% / 0.92) 0%, transparent 55%),
+      radial-gradient(ellipse 90% 60% at 100% 30%, hsl(154 38% 28% / 0.09) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 50% at 0% 70%, hsl(34 72% 48% / 0.06) 0%, transparent 45%),
+      linear-gradient(
+        198deg,
+        hsl(var(--background)) 0%,
+        hsl(32 44% 78%) 38%,
+        hsl(154 26% 76%) 72%,
+        hsl(var(--secondary)) 100%
+      );
+    overflow-x: clip;
+  }
+
+  /** Textura papel + vigas de luz muy suaves */
+  .enchanted-invitation::before {
+    content: '';
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.42;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cpath d='M82 154 Q118 96 138 72 M96 154 Q134 118 154 104 M112 154 Q144 142 154 126' stroke='%231a3828' stroke-width='0.4' fill='none' opacity='0.07'/%3E%3Cpath d='M22 154 Q8 118 52 104 M74 154 Q46 138 74 132' stroke='%233d2a14' stroke-width='0.35' fill='none' opacity='0.06'/%3E%3C/svg%3E"),
+      radial-gradient(hsl(154 26% 32% / 0.065) 0.85px, transparent 0.85px),
+      radial-gradient(ellipse at 72% -8%, hsl(34 54% 86% / 0.48) 0%, transparent 42%),
+      radial-gradient(ellipse at 12% 100%, hsl(154 42% 24% / 0.085) 0%, transparent 48%);
+    background-size:
+      180px 180px,
+      11px 11px,
+      100% 100%,
+      100% 100%;
+    mix-blend-mode: multiply;
+  }
+
+  /** Estrellas / polvo dorado translúcidos */
+  .enchanted-invitation::after {
+    content: '';
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.36;
+    background-image:
+      radial-gradient(2px 2px at 7% 18%, hsl(42 92% 90% / 0.92) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 93% 12%, hsl(48 90% 88% / 0.82) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 82% 64%, hsl(38 82% 86% / 0.72) 48%, transparent 52%),
+      radial-gradient(2px 2px at 18% 76%, hsl(92 64% 86% / 0.62) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 44% 38%, hsl(40 88% 90% / 0.68) 48%, transparent 52%),
+      radial-gradient(2px 2px at 58% 88%, hsl(36 76% 86% / 0.62) 48%, transparent 52%),
+      radial-gradient(120% 42% at 50% -5%, hsl(42 94% 96% / 0.34) 0%, transparent 100%);
+    animation: star-drift calc(var(--enchant-twinkle-duration) + 4s) ease-in-out infinite;
+  }
+
+  .enchanted-invitation > *:not(.forest-float-layer):not(script) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .enchanted-invitation > .forest-float-layer {
+    z-index: 0;
+  }
+
+  /** Luciérnagas · más transparentes para no cubrir contenido */
+  .forest-float-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0.42;
+    background-image:
+      radial-gradient(circle at 52% 48%, hsl(43 94% 78% / 0.75) 0 1px, transparent 7px),
+      radial-gradient(circle at 82% 32%, hsl(88 70% 82% / 0.52) 0 1px, transparent 7px),
+      radial-gradient(circle at 24% 58%, hsl(43 90% 78% / 0.62) 0 1px, transparent 7px),
+      radial-gradient(circle at 62% 82%, hsl(40 82% 76% / 0.42) 0 1px, transparent 7px),
+      radial-gradient(circle at 14% 72%, hsl(154 40% 74% / 0.38) 0 1px, transparent 7px),
+      radial-gradient(circle at 46% 22%, hsl(45 94% 88% / 0.52) 0 1px, transparent 7px),
+      radial-gradient(circle at 90% 54%, hsl(46 92% 84% / 0.4) 0 1px, transparent 7px);
+    animation: forest-drift 26s ease-in-out infinite,
+      firefly-twinkle 5.8s ease-in-out infinite alternate;
+  }
+
+  .enchant-sparkles {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 8;
+    background-image:
+      radial-gradient(circle at 40% 22%, hsl(48 92% 95% / 0.42) 0%, transparent 30%),
+      radial-gradient(1.75px 1.75px at 16% 34%, hsl(48 94% 99% / 0.72) 45%, transparent 55%),
+      radial-gradient(1.5px 1.5px at 92% 24%, hsl(92 80% 95% / 0.62) 50%, transparent 55%),
+      radial-gradient(2px 2px at 70% 80%, hsl(40 86% 86% / 0.52) 50%, transparent 55%);
+    animation: enchant-shimmer calc(var(--enchant-twinkle-duration) + 3s) ease-in-out infinite;
+  }
+
+  .hero-bosque-photo {
+    filter: saturate(1.18) hue-rotate(18deg) contrast(1.08) brightness(0.88);
+    will-change: filter;
+  }
+
+  .hero-bosque-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse 95% 75% at 50% 36%,
+        hsl(148 38% 14% / 0.31) 0%,
+        transparent 62%
+      ),
+      linear-gradient(180deg, hsl(148 32% 8% / 0.43) 0%, hsl(90 26% 6% / 0.42) 100%);
+    mix-blend-mode: multiply;
+  }
+
+  .hero-fairy-overlay {
+    background: linear-gradient(
+        to bottom,
+        hsl(152 42% 4% / 0.52) 0%,
+        transparent 36%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 18%,
+        hsl(154 46% 4% / 0.72) 100%
+      ),
+      linear-gradient(
+        102deg,
+        hsl(154 44% 5% / 0.54) 0%,
+        hsl(286 26% 8% / 0.36) 100%
+      );
+  }
+
+  /** Tarjetas editoriales · vidrio-pergamino translúcido */
+  .organic-frame {
+    position: relative;
+    border-radius: clamp(1.35rem, 4vw, 2rem)
+      clamp(1.65rem, 4.2vw, 2.35rem)
+      clamp(1.35rem, 4vw, 2.2rem)
+      clamp(1.25rem, 3.6vw, 1.95rem);
+    box-shadow:
+      var(--shadow-elegant),
+      0 0 0 1px hsl(var(--accent) / 0.12),
+      inset 0 1px 0 hsl(43 92% 100% / 0.55),
+      inset 0 -1px 0 hsl(154 34% 12% / 0.06);
+    border: 1px solid hsl(var(--border) / 0.72);
+    background-image: var(--gradient-panel);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: border-color 0.45s ease, box-shadow 0.45s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .organic-frame::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.22;
+    background: radial-gradient(circle at 14% -18%, hsl(var(--accent) / 0.45) 0%, transparent 58%);
+  }
+
+  @media (hover: hover) {
+    .organic-frame:hover {
+      border-color: hsl(var(--accent) / 0.38);
+      box-shadow:
+        var(--shadow-elegant),
+        0 0 0 1px hsl(var(--accent) / 0.2),
+        0 0 48px hsl(var(--accent) / 0.12),
+        inset 0 1px 0 hsl(43 76% 100% / 0.65);
+    }
+  }
+
+  /** Contador editorial */
+  .enchant-count-cell {
+    @apply rounded-2xl md:rounded-3xl px-4 py-5 md:px-7 md:py-8;
+    background: linear-gradient(
+      165deg,
+      hsl(var(--card) / 0.72) 0%,
+      hsl(34 42% 90% / 0.62) 100%
+    );
+    border: 1px solid hsl(var(--primary) / 0.14);
+    box-shadow:
+      inset 0 2px 0 hsl(43 92% 100% / 0.52),
+      0 6px 22px hsl(154 38% 8% / 0.07);
+    backdrop-filter: blur(12px);
+  }
+
+  /** CTA música / enlaces externos en tono bosque — sin verde chillón */
+  .btn-enchant-music {
+    @apply rounded-full px-8 font-semibold tracking-wide shadow-soft text-primary-foreground;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(154 34% 16%) 100%);
+    box-shadow:
+      inset 0 1px 0 hsl(43 80% 100% / 0.22),
+      0 0 0 1px hsl(var(--accent) / 0.42),
+      0 12px 32px hsl(152 40% 8% / 0.35);
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s ease;
+  }
+
+  .btn-enchant-music:hover {
+    filter: brightness(1.06);
+    box-shadow:
+      inset 0 1px 0 hsl(43 80% 100% / 0.28),
+      0 0 0 2px hsl(var(--accent) / 0.5),
+      0 14px 40px hsl(152 42% 6% / 0.42);
+    transform: translateY(-2px);
+  }
+
+  /** WhatsApp: verde marca pero más profundo para no chocar con la paleta */
+  .btn-brand-whatsapp {
+    @apply text-white font-semibold shadow-soft rounded-xl;
+    background: linear-gradient(135deg, #1e8a55 0%, #147a52 88%, #0f6844 100%);
+    border: 1px solid hsl(154 62% 18% / 0.95);
+    box-shadow:
+      inset 0 1px 0 hsl(120 52% 100% / 0.28),
+      0 6px 20px hsl(154 72% 8% / 0.42);
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.25s ease;
+  }
+
+  .btn-brand-whatsapp:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
   }
 }
 
-/* Smooth scroll behavior */
+@keyframes forest-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: saturate(103%) brightness(1);
+  }
+  33% {
+    transform: translate3d(0.35%, -0.6%, 0) scale(1.02);
+    filter: saturate(110%) brightness(1.03);
+  }
+  66% {
+    transform: translate3d(-0.42%, 0.45%, 0) scale(1.012);
+    filter: saturate(105%) brightness(0.99);
+  }
+}
+
+@keyframes firefly-twinkle {
+  0% {
+    opacity: 0.36;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes enchant-shimmer {
+  0%,
+  100% {
+    opacity: 0.88;
+    filter: saturate(100%);
+  }
+  50% {
+    opacity: 1;
+    filter: saturate(112%);
+  }
+}
+
+@keyframes star-drift {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.62;
+    transform: scale(1.02) translate3d(-1%, -0.4%, 0);
+  }
+}
+
+@media print {
+  html {
+    scroll-behavior: auto;
+    background: hsl(38 42% 96%);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  iframe[title='Spotify'],
+  .fixed.bottom-4,
+  button[aria-label='Activar música'],
+  [role='dialog'][aria-label='Activar música'],
+  .forest-float-layer,
+  .forest-ambience-toggle,
+  .enchanted-invitation::after {
+    display: none !important;
+  }
+
+  .enchanted-invitation::before {
+    position: absolute;
+    opacity: 0.2;
+  }
+
+  .hero-fairy-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsl(152 34% 8% / 0.52) 0%,
+      hsl(152 38% 5% / 0.62) 100%
+    );
+  }
+
+  .section-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    max-width: 100%;
+  }
+
+  .invitation-print-root {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

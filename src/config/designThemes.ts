@@ -1,6 +1,6 @@
 // Temas de diseño disponibles para la invitación
 
-export type DesignTheme = 'romantic' | 'modern' | 'rustic';
+export type DesignTheme = 'romantic' | 'modern' | 'rustic' | 'enchantedForest';
 
 export interface ThemeConfig {
   id: DesignTheme;
@@ -25,6 +25,35 @@ export interface ThemeConfig {
     shadowStyle: string;
   };
 }
+
+/**
+ * Tokens HSL sin envolver — aplicados por JS sobre el documentElement.
+ * Una sola paleta “bosque encantado · editorial · cálida” + buen contraste.
+ */
+/** Pergamino cálido · musgo profundo · luciérnaga ámbar · buen contraste */
+export const enchantedForestCssVars: Record<string, string> = {
+  '--background': '36 42% 81%',
+  '--foreground': '154 36% 13%',
+  '--card': '34 48% 89%',
+  '--card-foreground': '154 34% 14%',
+  '--popover': '36 46% 91%',
+  '--popover-foreground': '154 34% 14%',
+  '--primary': '154 34% 18%',
+  '--primary-foreground': '42 78% 97%',
+  '--secondary': '92 28% 74%',
+  '--secondary-foreground': '154 30% 15%',
+  '--muted': '90 24% 72%',
+  '--muted-foreground': '148 22% 26%',
+  '--accent': '34 72% 46%',
+  '--accent-foreground': '154 40% 11%',
+  '--destructive': '0 72% 50%',
+  '--destructive-foreground': '43 72% 98%',
+  '--border': '34 32% 62%',
+  '--input': '36 36% 72%',
+  '--ring': '154 30% 28%',
+  '--rose': '28 44% 88%',
+  '--rose-foreground': '154 28% 17%'
+};
 
 export const designThemes: Record<DesignTheme, ThemeConfig> = {
   romantic: {
@@ -94,6 +123,30 @@ export const designThemes: Record<DesignTheme, ThemeConfig> = {
     style: {
       borderRadius: '0.5rem',
       shadowStyle: 'soft'
+    }
+  },
+  enchantedForest: {
+    id: 'enchantedForest',
+    name: 'Bosque mágico cálido',
+    description:
+      'Verde bosque profundo, salvia suave, lino, dorado luciérnaga y tierra — invitación cálida tipo bosque ilustrado',
+    preview: '/images/mama-max-panza.png',
+    colors: {
+      primary: '154 34% 18%',
+      secondary: '92 28% 74%',
+      accent: '34 72% 46%',
+      background: '36 42% 81%',
+      foreground: '154 36% 13%',
+      muted: '90 24% 72%'
+    },
+    fonts: {
+      display: 'Cormorant Garamond',
+      body: 'Quicksand',
+      accent: 'Cormorant Garamond italic'
+    },
+    style: {
+      borderRadius: '1.25rem',
+      shadowStyle: 'enchanted'
     }
   }
 };

@@ -15,10 +15,10 @@ const Gallery = () => {
         >
           <Camera className="w-12 h-12 text-primary mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
-            Nuestros Momentos
+            {weddingConfig.sectionCopy.galleryTitle}
           </h2>
-          <p className="font-body text-lg text-muted-foreground">
-            Algunos de los momentos que hemos compartido juntos
+          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            {weddingConfig.sectionCopy.gallerySubtitle}
           </p>
         </motion.div>
 

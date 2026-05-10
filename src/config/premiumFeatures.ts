@@ -9,15 +9,13 @@ export const premiumFeatures = {
   // Nuestra Historia
   ourStory: isPremiumEnabled,
   
-  // Agenda del evento
-  schedule: isPremiumEnabled,
-  
-  // Galería de fotos
-  gallery: isPremiumEnabled,
-  
-  // Código de vestimenta
-  dressCode: isPremiumEnabled,
-  
+  // Agenda: desactivada en esta invitación
+  schedule: false,
+
+  // Galería y vestimenta: no se usan en esta invitación
+  gallery: false,
+  dressCode: false,
+
   // Footer
   footer: isPremiumEnabled,
   

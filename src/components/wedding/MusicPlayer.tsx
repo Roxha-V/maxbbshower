@@ -7,7 +7,9 @@ import { Button } from '@/components/ui/button';
 
 const MusicPlayer = () => {
   // Con Spotify la música no arranca sola; con audio directo intentamos autoplay
-  const [isPlaying, setIsPlaying] = useState(!weddingConfig.music.spotifyEmbed);
+  const [isPlaying, setIsPlaying] = useState(
+    !(weddingConfig.music.spotifyUseEmbed && weddingConfig.music.spotifyEmbed)
+  );
   const [showUnlockHint, setShowUnlockHint] = useState(true); // Overlay "Tocá para escuchar" hasta primera interacción
   const audioRef = useRef<HTMLAudioElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -41,7 +43,12 @@ const MusicPlayer = () => {
     if (!weddingConfig.music.enabled) return;
     const handleFirstInteraction = () => {
       setShowUnlockHint(false);
-      if (weddingConfig.music.spotifyEmbed && playButtonRef.current && !isPlaying) {
+      if (
+        weddingConfig.music.spotifyUseEmbed &&
+        weddingConfig.music.spotifyEmbed &&
+        playButtonRef.current &&
+        !isPlaying
+      ) {
         playButtonRef.current.click();
       }
       if (weddingConfig.music.audioUrl && audioRef.current && !isPlaying) {
@@ -55,7 +62,13 @@ const MusicPlayer = () => {
       document.removeEventListener('click', handleFirstInteraction, opts);
       document.removeEventListener('touchstart', handleFirstInteraction, opts);
     };
-  }, [weddingConfig.music.enabled, weddingConfig.music.spotifyEmbed, weddingConfig.music.audioUrl, isPlaying]);
+  }, [
+    weddingConfig.music.enabled,
+    weddingConfig.music.spotifyUseEmbed,
+    weddingConfig.music.spotifyEmbed,
+    weddingConfig.music.audioUrl,
+    isPlaying
+  ]);
 
   // Controlar audio directo
   const toggleAudio = () => {
@@ -142,8 +155,8 @@ const MusicPlayer = () => {
     }
   };
 
-  // Si hay un embed de Spotify
-  if (weddingConfig.music.spotifyEmbed) {
+  // Embed de Spotify sólo si está explícitamente activado (por defecto sólo enlace en la sección playlist)
+  if (weddingConfig.music.spotifyUseEmbed && weddingConfig.music.spotifyEmbed) {
     const spotifyUrl = getSpotifyUrl(weddingConfig.music.spotifyEmbed);
     const spotifyEmbedUrl = weddingConfig.music.spotifyEmbed.includes('?')
       ? `${weddingConfig.music.spotifyEmbed}&autoplay=1`
@@ -221,7 +234,7 @@ const MusicPlayer = () => {
             variant="ghost"
             size="sm"
             onClick={() => window.open(weddingConfig.music.collaborativePlaylistUrl || spotifyUrl, '_blank')}
-            className="rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-white shadow-elegant gap-2 px-4"
+            className="rounded-full btn-enchant-music gap-2 px-4 py-2 h-auto shadow-elegant"
             title={weddingConfig.music.collaborativePlaylistUrl ? "Ver playlist y sumar tu tema" : "Abrir en Spotify"}
           >
             <svg

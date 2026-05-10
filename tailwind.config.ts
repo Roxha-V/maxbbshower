@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Playfair Display', 'serif'],
-        body: ['Lora', 'serif'],
-        accent: ['Cinzel', 'serif'],
+        display: ["Cormorant Garamond", "Georgia", "serif"],
+        body: ["Quicksand", "system-ui", "sans-serif"],
+        accent: ["Cormorant Garamond", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -71,6 +71,11 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        elegant: "var(--shadow-elegant)",
+        glow: "var(--shadow-glow)",
+        soft: "var(--shadow-soft)",
       },
       keyframes: {
         "accordion-down": {

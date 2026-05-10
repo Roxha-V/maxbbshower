@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
 import { weddingConfig } from '@/config/weddingConfig';
-import { Church, Wine, UtensilsCrossed, Music, PartyPopper, Star } from 'lucide-react';
+import { UtensilsCrossed, Music, PartyPopper, Sparkles, Star, Mail } from 'lucide-react';
 
-const iconMap: Record<string, any> = {
-  church: Church,
-  glass: Wine,
+const iconMap: Record<string, typeof Star> = {
+  glass: Sparkles,
   dinner: UtensilsCrossed,
   dance: Music,
   party: PartyPopper,
-  star: Star
+  star: Star,
+  sparkles: Sparkles,
+  mail: Mail,
+  music: Music
 };
 
 const Schedule = () => {
@@ -23,10 +25,10 @@ const Schedule = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
-            Agenda del Día
+            {weddingConfig.sectionCopy.scheduleTitle}
           </h2>
-          <p className="font-body text-lg text-muted-foreground">
-            Así transcurrirá nuestro día especial
+          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            {weddingConfig.sectionCopy.scheduleSubtitle}
           </p>
         </motion.div>
 

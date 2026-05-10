@@ -2,51 +2,59 @@ import { useEffect } from 'react';
 import HeroSection from '@/components/wedding/HeroSection';
 import Countdown from '@/components/wedding/Countdown';
 import FamilyMessage from '@/components/wedding/FamilyMessage';
-// FUNCIONES PREMIUM
+import SisterWelcome from '@/components/wedding/SisterWelcome';
 import OurStory from '@/components/wedding/OurStory';
 import EventDetails from '@/components/wedding/EventDetails';
-import Schedule from '@/components/wedding/Schedule';
-import Gallery from '@/components/wedding/Gallery';
 import Location from '@/components/wedding/Location';
-import DressCode from '@/components/wedding/DressCode';
 import Gifts from '@/components/wedding/Gifts';
 import RSVP from '@/components/wedding/RSVP';
 import MusicPlayer from '@/components/wedding/MusicPlayer';
+import CollaborativePlaylist from '@/components/wedding/CollaborativePlaylist';
+import ForestAmbience from '@/components/wedding/ForestAmbience';
 import Footer from '@/components/wedding/Footer';
-import { designThemes } from '@/config/designThemes';
+import { enchantedForestCssVars } from '@/config/designThemes';
 import { premiumFeatures } from '@/config/premiumFeatures';
 import { weddingConfig } from '@/config/weddingConfig';
 
 const InvitationRomantic = () => {
   useEffect(() => {
-    // Scroll al top siempre que se carga la página
     window.scrollTo(0, 0);
-
-    // Aplicar tema romántico
-    const theme = designThemes.romantic;
-    document.documentElement.style.setProperty('--primary', theme.colors.primary);
-    document.documentElement.style.setProperty('--secondary', theme.colors.secondary);
-    document.documentElement.style.setProperty('--accent', theme.colors.accent);
-    document.documentElement.style.setProperty('--background', theme.colors.background);
-    document.documentElement.style.setProperty('--foreground', theme.colors.foreground);
-    document.documentElement.style.setProperty('--muted', theme.colors.muted);
+    Object.entries(enchantedForestCssVars).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen enchanted-invitation invitation-print-root relative overflow-x-hidden">
+      <div className="forest-float-layer pointer-events-none print:hidden" aria-hidden />
+
       <HeroSection />
+
+      <div aria-hidden className="pointer-events-none mx-auto hidden md:block relative -mt-px h-3 max-w-xl overflow-hidden rounded-full opacity-70">
+        <div className="absolute inset-x-12 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-accent/85 to-transparent" />
+        {[12, 38, 64, 88].map((p) => (
+          <span
+            key={p}
+            className="absolute top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-glow animate-pulse"
+            style={{ left: `${p}%` }}
+          />
+        ))}
+      </div>
+
+      <div className="fairy-garland-row print:hidden" aria-hidden />
+
       <Countdown />
       {weddingConfig.familyMessage?.enabled && <FamilyMessage />}
+      <SisterWelcome />
       <EventDetails />
       <Location />
       <Gifts />
       <RSVP />
+      <CollaborativePlaylist />
       <MusicPlayer />
+      <ForestAmbience />
 
       {premiumFeatures.ourStory && <OurStory />}
-      {premiumFeatures.schedule && <Schedule />}
-      {premiumFeatures.gallery && <Gallery />}
-      {premiumFeatures.dressCode && <DressCode />}
       {premiumFeatures.footer && <Footer />}
     </div>
   );

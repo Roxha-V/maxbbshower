@@ -13,7 +13,7 @@ const DressCode = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Shirt className="w-12 h-12 text-rose mx-auto mb-6" />
+          <Shirt className="w-12 h-12 text-primary/85 mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
             {weddingConfig.dressCode.title}
           </h2>

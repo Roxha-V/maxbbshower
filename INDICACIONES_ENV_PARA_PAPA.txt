@@ -1,0 +1,107 @@
+================================================================================
+ BABY SHOWER DE MAX · Invitación web (variables de entorno / archivo .env)
+================================================================================
+Este texto es solo una guía. La persona que mantiene el proyecto copia lo que
+completes en el archivo .env del proyecto (o te pide que edites esas líneas).
+
+Cómo usar esto:
+  • Lo que dice "YA ESTÁ" no hace falta tocarlo, salvo que quieran cambiar un texto.
+  • Lo que dice "COMPLETAR" es lo que falta: reemplazar el texto de ejemplo o el
+    enlace provisorio por el dato real.
+
+================================================================================
+YA ESTÁ (información ya cargada — solo revisar si querés cambiar algo)
+================================================================================
+
+  • Bebé: Max
+  • Mamá y papá: Yami y Juan
+  • Hermana Mia: sección activa, foto y textos de Mia
+  • Fecha y hora del evento: 26 de julio de 2026, 16:00 hs
+  • Nombre del lugar (tal como se muestra): Bosque Encantado - Villa Mágica
+  • WhatsApp para confirmar: números de Yami y Juan (RSVP paso 1)
+  • Playlist colaborativa en Spotify (enlace ya puesto)
+  • Mensaje familiar, pie de página, redes (#BabyShowerMax, Instagram de ejemplo)
+  • Formulario de datos en pantalla (nombre + cantidad de personas antes de WhatsApp)
+  • Fecha límite de confirmación RSVP: 1° de julio de 2026
+  • Vestimenta sugerida (bosque / hadas)
+  • Fotos del carrusel principal (ecografía, familia con pintura, panza MAX)
+  • Imagen de la sección historia y foto de fondo del pie
+
+================================================================================
+COMPLETAR — dirección y mapa (muy importante)
+================================================================================
+
+  Variable: VITE_EVENT_ADDRESS
+  Qué pedimos: Dirección completa como la van a copiar los invitados (calle, número,
+               barrio, ciudad). Hoy dice "Dirección detallada — editar".
+
+  Variable: VITE_LOCATION_ADDRESS
+  Qué pedimos: Lo mismo o una versión un poco más larga si querés aclaraciones.
+               Hoy dice "Dirección completa — editar cuando esté lista".
+
+  Variable: VITE_LOCATION_MAP_URL
+  Qué pedimos: Link corto de Google Maps (Maps → Compartir → copiar enlace).
+               Hoy es un ejemplo: https://maps.app.goo.gl/ejemplo
+
+  Variables: VITE_LOCATION_LAT y VITE_LOCATION_LNG
+  Qué pedimos: Latitud y longitud del lugar (los podés sacar desde Google Maps
+               al ubicar el pin; si cambian la dirección, actualizar estos dos números).
+               Ayudan al mapa embebido y al "Abrir en mapas".
+
+  Variable: VITE_LOCATION_DIRECTIONS
+  Qué pedimos: Texto corto con cómo llegar, estacionamiento, portón, torre,
+               referencias. Hoy dice "Indicaciones y estacionamiento (editar).".
+
+================================================================================
+COMPLETAR — formulario obligatorio de Google (RSVP paso 2)
+================================================================================
+
+  Variable: VITE_RSVP_GOOGLE_FORM_URL
+  Qué pedimos: El enlace real del Google Form (Vista del formulario / viewform).
+               Hoy está un placeholder: https://docs.google.com/forms/d/e/.../viewform
+               Sin este enlace funcionando, el segundo paso de confirmación no sirve.
+
+================================================================================
+COMPLETAR — datos bancarios / regalo (solo si van a usar transferencia)
+================================================================================
+
+Si no van a publicar cuenta, pueden poner VITE_BANK_TRANSFER_ENABLED=false y
+omitir los datos abajo (hay que pedirlo a quien lleva el código).
+
+  Variable: VITE_BANK_ALIAS           → CBU alias real o el que correspondan usar
+  Variable: VITE_BANK_NAME           → Nombre del banco (ej.: Banco Nación…)
+  Variable: VITE_BANK_ACCOUNT        → Tipo de cuenta / número visible si querés aclararlo
+  Variable: VITE_BANK_CBU            → CBU completo (si lo muestran; si no, dejar vacío)
+  Variable: VITE_BANK_DESTINATARIO   → Titular(es) como figura en el banco
+
+  Hoy varios están como ejemplo o incompletos (alias ejemplo, CBU vacío).
+
+================================================================================
+OPCIONAL (solo si lo quieren usar)
+================================================================================
+
+  Variable: VITE_GROOM_NAME          → Suele estar vacío en baby shower (OK).
+
+  Variable: VITE_RSVP_EMAIL_ENABLED y VITE_RSVP_EMAIL_ADDRESS
+            → Solo si habilitan confirmación por correo además de WhatsApp.
+
+  Variable: VITE_FAMILY_MESSAGE      → Mensaje familiar personalizado (varios párrafos);
+            si no lo mandan, la página usa los textos por defecto.
+
+  Variable: VITE_LOCATION_MAP_EMBED_URL
+            → Solo si necesitan otro iframe de mapa que no sea el estándar con lat/lng.
+
+  Variable: Instagram en VITE_SOCIAL_INSTAGRAM
+            → Si no tienen usuario todavía, pueden dejar el de ejemplo o un guion hasta definir.
+
+================================================================================
+Al terminar de completar todo
+================================================================================
+
+  Quien arma el proyecto debe guardar el .env y volver a ejecutar la web
+  (npm run dev en local o nuevo build/despliegue en internet) para que se vean
+  los cambios.
+
+================================================================================
+Fin del listado · Baby shower Bosque encantado — Max
+================================================================================

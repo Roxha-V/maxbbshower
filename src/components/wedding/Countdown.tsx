@@ -45,23 +45,27 @@ const Countdown = () => {
   ];
 
   return (
-    <section className="section-container bg-gradient-to-b from-background to-secondary/30 pb-8 md:pb-16">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="section-container bg-gradient-to-b from-secondary/50 via-primary/[0.06] to-background/95">
+      <div className="max-w-4xl mx-auto text-center w-full min-w-0 px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
-            Faltan
-          </h2>
-          <p className="font-body text-muted-foreground text-lg mb-8 md:mb-12">
-            Para el día más especial de nuestras vidas
+          {weddingConfig.sectionCopy.countdownTitle ? (
+            <h2 className="invite-section-title mb-4">{weddingConfig.sectionCopy.countdownTitle}</h2>
+          ) : null}
+          <p
+            className={`font-display font-medium italic leading-snug mx-auto max-w-xl text-foreground/88 text-shadow-soft text-[clamp(1.125rem,3.85vw,1.725rem)] ${
+              weddingConfig.sectionCopy.countdownTitle ? 'mb-10 md:mb-12' : 'mb-10 md:mb-14 mt-1'
+            }`}
+          >
+            {weddingConfig.sectionCopy.countdownSubtitle}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 md:gap-7">
           {timeUnits.map((unit, index) => (
             <motion.div
               key={unit.label}
@@ -69,12 +73,12 @@ const Countdown = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card rounded-2xl p-6 md:p-8 shadow-elegant border border-border/50"
+              className="enchant-count-cell"
             >
-              <div className="font-display text-5xl md:text-6xl lg:text-7xl text-primary mb-2">
+              <div className="font-display font-semibold text-primary mb-2 tabular-nums text-[clamp(2rem,8vw,3.85rem)] leading-none tracking-tight">
                 {unit.value.toString().padStart(2, '0')}
               </div>
-              <div className="font-accent text-sm md:text-base text-muted-foreground uppercase tracking-wider">
+              <div className="font-body text-[clamp(0.65rem,2.3vw,0.775rem)] text-foreground/72 uppercase tracking-[0.14em] font-semibold">
                 {unit.label}
               </div>
             </motion.div>
