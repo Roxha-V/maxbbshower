@@ -4,72 +4,91 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Bosque encantado · invitación editorial cálida */
-
+/*
+ * Paleta fija (CSS): --palette-*  →  hex en designThemes (enchantedForestCssVars).
+ * Tailwind opcional: bg-forest-* / text-forest-*, bg-pastel-* / text-pastel-*
+ * (p. ej. bg-pastel-grape, bg-forest-moss, text-forest-midnight).
+ */
 @layer base {
   :root {
-    /* Rosa + violeta + bosque — sync con enchantedForestCssVars */
+    /* Paleta fija (hex) — sync con enchantedForestCssVars */
+    --palette-dark-green: 158 76% 9%;
+    --palette-moss: 80 27% 47%;
+    --palette-beige: 55 68% 90%;
+    --palette-rosy-brown: 10 56% 58%;
+    --palette-midnight: 191 73% 23%;
+    --palette-matcha: 96 61% 84%;
+    --palette-botanist: 117 47% 67%;
+    --palette-aquamarine: 194 81% 68%;
+    --palette-grape: 248 88% 68%;
+    --palette-pink-diamond: 315 64% 80%;
+
     --background: 55 68% 90%;
-    --foreground: 157 67% 12%;
+    --foreground: 158 76% 9%;
 
-    --card: 52 62% 93%;
-    --card-foreground: 157 67% 12%;
+    --card: 55 58% 93%;
+    --card-foreground: 158 76% 9%;
 
-    --popover: 52 58% 94%;
-    --popover-foreground: 157 67% 12%;
+    --popover: 55 54% 94%;
+    --popover-foreground: 158 76% 9%;
 
     --primary: 191 73% 23%;
-    --primary-foreground: 55 68% 96%;
+    --primary-foreground: 55 68% 97%;
 
-    --secondary: 80 28% 85%;
-    --secondary-foreground: 157 50% 16%;
+    --secondary: 96 45% 88%;
+    --secondary-foreground: 158 62% 13%;
 
-    --muted: 288 14% 86%;
-    --muted-foreground: 285 22% 32%;
+    --muted: 96 36% 86%;
+    --muted-foreground: 158 32% 27%;
 
-    --accent: 340 54% 72%;
-    --accent-foreground: 324 42% 18%;
+    --accent: 10 56% 58%;
+    --accent-foreground: 158 76% 9%;
 
-    --rose: 320 62% 92%;
-    --rose-foreground: 295 38% 22%;
+    --rose: 315 64% 80%;
+    --rose-foreground: 158 70% 11%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 55 68% 97%;
 
-    --border: 285 22% 76%;
-    --input: 288 18% 82%;
-    --ring: 252 62% 58%;
+    --border: 278 28% 70%;
+    --input: 285 22% 80%;
+    --ring: 255 78% 52%;
 
-    --fairy-pink: 335 72% 91%;
-    --fairy-violet: 252 76% 84%;
+    --fairy-pink: 315 64% 80%;
+    --fairy-violet: 248 88% 68%;
 
     --radius: 1.25rem;
 
     --gradient-romantic: linear-gradient(
       168deg,
-      hsl(var(--fairy-pink) / 0.95) 0%,
-      hsl(var(--fairy-violet) / 0.55) 38%,
-      hsl(80 26% 86% / 0.92) 58%,
-      hsl(191 38% 86% / 0.72) 100%
+      hsl(var(--palette-pink-diamond) / 1) 0%,
+      hsl(var(--palette-grape) / 0.62) 30%,
+      hsl(var(--palette-rosy-brown) / 0.28) 48%,
+      hsl(var(--palette-matcha) / 0.88) 60%,
+      hsl(var(--palette-aquamarine) / 0.45) 82%,
+      hsl(var(--palette-beige) / 1) 100%
     );
     --gradient-gold: linear-gradient(
       130deg,
-      hsl(340 58% 76%) 0%,
-      hsl(252 62% 72%) 48%,
-      hsl(191 73% 28%) 100%
+      hsl(var(--palette-rosy-brown) / 1) 0%,
+      hsl(var(--palette-grape) / 1) 38%,
+      hsl(var(--palette-midnight) / 1) 100%
     );
     --gradient-panel: linear-gradient(
       152deg,
       hsl(var(--card) / 0.78) 0%,
-      hsl(var(--fairy-pink) / 0.55) 45%,
-      hsl(var(--fairy-violet) / 0.35) 100%
+      hsl(var(--palette-pink-diamond) / 0.78) 40%,
+      hsl(var(--palette-grape) / 0.32) 88%,
+      hsl(var(--palette-matcha) / 0.72) 100%
     );
 
-    --shadow-elegant: 0 12px 42px -16px hsl(157 55% 8% / 0.26),
-      0 4px 22px -12px hsl(285 42% 28% / 0.14);
-    --shadow-soft: 0 6px 26px -10px hsl(300 35% 12% / 0.11);
-    --shadow-glow: 0 0 52px hsl(340 55% 65% / 0.35),
-      0 0 36px hsl(252 70% 70% / 0.28);
+    --shadow-elegant: 0 12px 42px -16px hsl(var(--palette-dark-green) / 0.34),
+      0 4px 22px -12px hsl(var(--palette-grape) / 0.2),
+      0 2px 12px hsl(var(--palette-rosy-brown) / 0.12);
+    --shadow-soft: 0 6px 26px -10px hsl(var(--palette-dark-green) / 0.14);
+    --shadow-glow: 0 0 56px hsl(var(--palette-grape) / 0.48),
+      0 0 38px hsl(var(--palette-pink-diamond) / 0.45),
+      0 0 28px hsl(var(--palette-rosy-brown) / 0.34);
 
     --transition-smooth: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -130,17 +149,29 @@
     font-size: clamp(1.8125rem, 5vw, 2.875rem);
     line-height: 1.1;
     font-weight: 600;
+    text-shadow:
+      0 2px 14px hsl(var(--palette-pink-diamond) / 0.45),
+      0 1px 0 hsl(var(--palette-grape) / 0.12);
   }
 
   .invite-section-sub {
-    @apply font-display italic text-primary/90 font-medium mx-auto;
+    @apply font-display italic font-medium mx-auto;
     font-size: clamp(0.9375rem, 2.85vw, 1.125rem);
     letter-spacing: 0.04em;
     max-width: 28rem;
+    color: transparent;
+    background-image: linear-gradient(
+      102deg,
+      hsl(var(--accent)) 0%,
+      hsl(var(--fairy-violet)) 52%,
+      hsl(var(--primary)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 
   .invite-section-lead {
-    @apply font-body text-foreground/90 leading-relaxed mx-auto font-medium;
+    @apply font-body text-foreground leading-relaxed mx-auto font-semibold;
     font-size: clamp(0.97rem, 2.95vw, 1.11rem);
     max-width: 38rem;
   }
@@ -180,12 +211,14 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(var(--accent) / 0.58) 32%,
-      hsl(var(--fairy-violet) / 0.65) 50%,
-      hsl(var(--primary) / 0.32) 68%,
+      hsl(var(--palette-dark-green) / 0.35) 18%,
+      hsl(var(--accent) / 0.88) 38%,
+      hsl(var(--fairy-violet) / 0.92) 52%,
+      hsl(var(--primary) / 0.65) 72%,
+      hsl(var(--palette-dark-green) / 0.28) 88%,
       transparent 100%
     );
-    opacity: 0.65;
+    opacity: 0.92;
     pointer-events: none;
   }
 
@@ -197,14 +230,16 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(var(--accent) / 0.65) 36%,
-      hsl(var(--fairy-violet) / 0.75) 58%,
-      hsl(var(--secondary)) 94%,
+      hsl(var(--palette-dark-green) / 0.55) 22%,
+      hsl(var(--accent) / 0.95) 42%,
+      hsl(var(--fairy-violet) / 1) 58%,
+      hsl(var(--secondary)) 92%,
       transparent 100%
     );
     box-shadow:
-      0 0 18px hsl(var(--accent) / 0.22),
-      0 0 28px hsl(252 70% 70% / 0.14);
+      0 0 22px hsl(var(--palette-rosy-brown) / 0.38),
+      0 0 34px hsl(var(--palette-grape) / 0.38),
+      0 0 18px hsl(var(--palette-dark-green) / 0.12);
   }
 
   @media (min-width: 768px) {
@@ -216,13 +251,13 @@
 
   .hero-text-shadow {
     text-shadow:
-      0 1px 3px rgba(8, 28, 22, 0.55),
-      0 2px 24px rgba(10, 42, 28, 0.5),
-      0 4px 42px rgba(6, 26, 22, 0.35);
+      0 1px 3px rgba(10, 51, 35, 0.52),
+      0 2px 24px rgba(10, 51, 35, 0.42),
+      0 4px 42px rgba(10, 51, 35, 0.28);
   }
 
   .text-shadow-soft {
-    text-shadow: 0 2px 12px hsl(157 55% 8% / 0.22);
+    text-shadow: 0 2px 12px hsl(var(--palette-dark-green) / 0.2);
   }
 
   .fairy-garland-row {
@@ -251,20 +286,26 @@
     }
   }
 
-  /** Página · crema nenúfar + fondos bosque / medianoche sutiles */
+  /** Página · beige + musgo + medianoche + Grape + Pink Diamond */
   .enchanted-invitation {
     position: relative;
     background:
-      radial-gradient(ellipse 120% 80% at 50% -20%, hsl(55 72% 94% / 0.92) 0%, transparent 55%),
-      radial-gradient(ellipse 90% 60% at 100% 28%, hsl(191 42% 32% / 0.09) 0%, transparent 50%),
-      radial-gradient(ellipse 82% 52% at 2% 72%, hsl(80 36% 48% / 0.07) 0%, transparent 46%),
-      radial-gradient(ellipse 70% 40% at 94% 88%, hsl(252 58% 78% / 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 55% 45% at 8% 20%, hsl(340 62% 88% / 0.22) 0%, transparent 50%),
+      radial-gradient(
+        ellipse 120% 80% at 50% -20%,
+        hsl(var(--palette-pink-diamond) / 0.78) 0%,
+        transparent 55%
+      ),
+      radial-gradient(ellipse 90% 60% at 100% 28%, hsl(var(--palette-midnight) / 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 82% 52% at 2% 72%, hsl(var(--palette-moss) / 0.14) 0%, transparent 46%),
+      radial-gradient(ellipse 74% 48% at 94% 88%, hsl(var(--palette-grape) / 0.34) 0%, transparent 50%),
+      radial-gradient(ellipse 52% 40% at 12% 22%, hsl(var(--palette-rosy-brown) / 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse 58% 48% at 10% 18%, hsl(var(--palette-aquamarine) / 0.14) 0%, transparent 50%),
       linear-gradient(
         198deg,
-        hsl(var(--background)) 0%,
-        hsl(55 54% 86%) 40%,
-        hsl(191 28% 84% / 0.92) 74%,
+        hsl(var(--palette-beige) / 1) 0%,
+        hsl(var(--palette-matcha) / 0.92) 40%,
+        hsl(var(--palette-midnight) / 0.2) 76%,
+        hsl(var(--palette-dark-green) / 0.08) 94%,
         hsl(var(--secondary)) 100%
       );
     overflow-x: clip;
@@ -300,13 +341,17 @@
     z-index: 0;
     opacity: 0.36;
     background-image:
-      radial-gradient(2px 2px at 7% 18%, hsl(55 92% 95% / 0.88) 48%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 93% 12%, hsl(191 76% 92% / 0.62) 48%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 82% 64%, hsl(252 74% 86% / 0.72) 48%, transparent 52%),
-      radial-gradient(2px 2px at 18% 76%, hsl(80 58% 88% / 0.52) 48%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 44% 38%, hsl(55 88% 94% / 0.62) 48%, transparent 52%),
-      radial-gradient(2px 2px at 58% 88%, hsl(330 72% 90% / 0.72) 48%, transparent 52%),
-      radial-gradient(120% 42% at 50% -5%, hsl(55 85% 97% / 0.32) 0%, transparent 100%);
+      radial-gradient(2px 2px at 7% 18%, hsl(var(--palette-beige) / 0.85) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 93% 12%, hsl(var(--palette-aquamarine) / 0.55) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 82% 64%, hsl(var(--palette-grape) / 0.62) 48%, transparent 52%),
+      radial-gradient(2px 2px at 18% 76%, hsl(var(--palette-matcha) / 0.5) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 44% 38%, hsl(var(--palette-pink-diamond) / 0.72) 48%, transparent 52%),
+      radial-gradient(2px 2px at 58% 88%, hsl(var(--palette-rosy-brown) / 0.45) 48%, transparent 52%),
+      radial-gradient(
+        120% 42% at 50% -5%,
+        hsl(var(--palette-botanist) / 0.22) 0%,
+        transparent 100%
+      );
     animation: star-drift calc(var(--enchant-twinkle-duration) + 4s) ease-in-out infinite;
   }
 
@@ -327,13 +372,13 @@
     overflow: hidden;
     opacity: 0.42;
     background-image:
-      radial-gradient(circle at 52% 48%, hsl(55 88% 86% / 0.62) 0 1px, transparent 7px),
-      radial-gradient(circle at 82% 32%, hsl(80 42% 72% / 0.46) 0 1px, transparent 7px),
-      radial-gradient(circle at 26% 58%, hsl(191 62% 78% / 0.42) 0 1px, transparent 7px),
-      radial-gradient(circle at 62% 82%, hsl(266 62% 80% / 0.52) 0 1px, transparent 7px),
-      radial-gradient(circle at 14% 72%, hsl(157 42% 68% / 0.34) 0 1px, transparent 7px),
-      radial-gradient(circle at 46% 22%, hsl(330 76% 90% / 0.58) 0 1px, transparent 7px),
-      radial-gradient(circle at 90% 54%, hsl(55 74% 92% / 0.38) 0 1px, transparent 7px);
+      radial-gradient(circle at 52% 48%, hsl(var(--palette-pink-diamond) / 0.55) 0 1px, transparent 7px),
+      radial-gradient(circle at 82% 32%, hsl(var(--palette-moss) / 0.35) 0 1px, transparent 7px),
+      radial-gradient(circle at 26% 58%, hsl(var(--palette-aquamarine) / 0.42) 0 1px, transparent 7px),
+      radial-gradient(circle at 62% 82%, hsl(var(--palette-grape) / 0.48) 0 1px, transparent 7px),
+      radial-gradient(circle at 14% 72%, hsl(var(--palette-botanist) / 0.32) 0 1px, transparent 7px),
+      radial-gradient(circle at 46% 22%, hsl(var(--palette-rosy-brown) / 0.38) 0 1px, transparent 7px),
+      radial-gradient(circle at 90% 54%, hsl(var(--palette-beige) / 0.45) 0 1px, transparent 7px);
     animation: forest-drift 26s ease-in-out infinite,
       firefly-twinkle 5.8s ease-in-out infinite alternate;
   }
@@ -345,10 +390,10 @@
     overflow: hidden;
     z-index: 8;
     background-image:
-      radial-gradient(circle at 40% 22%, hsl(55 92% 96% / 0.38) 0%, transparent 30%),
-      radial-gradient(1.75px 1.75px at 16% 34%, hsl(191 72% 97% / 0.62) 45%, transparent 55%),
-      radial-gradient(1.5px 1.5px at 92% 24%, hsl(255 82% 90% / 0.72) 50%, transparent 55%),
-      radial-gradient(2px 2px at 70% 80%, hsl(55 76% 92% / 0.46) 50%, transparent 55%);
+      radial-gradient(circle at 40% 22%, hsl(var(--palette-pink-diamond) / 0.35) 0%, transparent 30%),
+      radial-gradient(1.75px 1.75px at 16% 34%, hsl(var(--palette-aquamarine) / 0.55) 45%, transparent 55%),
+      radial-gradient(1.5px 1.5px at 92% 24%, hsl(var(--palette-grape) / 0.65) 50%, transparent 55%),
+      radial-gradient(2px 2px at 70% 80%, hsl(var(--palette-matcha) / 0.42) 50%, transparent 55%);
     animation: enchant-shimmer calc(var(--enchant-twinkle-duration) + 3s) ease-in-out infinite;
   }
 
@@ -364,13 +409,13 @@
     pointer-events: none;
     background: radial-gradient(
         ellipse 95% 75% at 50% 36%,
-        hsl(157 58% 8% / 0.34) 0%,
+        hsl(var(--palette-dark-green) / 0.34) 0%,
         transparent 62%
       ),
       linear-gradient(
         180deg,
-        hsl(191 52% 6% / 0.42) 0%,
-        hsl(80 22% 8% / 0.38) 100%
+        hsl(var(--palette-midnight) / 0.42) 0%,
+        hsl(var(--palette-moss) / 0.38) 100%
       );
     mix-blend-mode: multiply;
   }
@@ -378,18 +423,18 @@
   .hero-fairy-overlay {
     background: linear-gradient(
         to bottom,
-        hsl(157 55% 5% / 0.5) 0%,
+        hsl(var(--palette-dark-green) / 0.48) 0%,
         transparent 36%
       ),
       linear-gradient(
         to bottom,
         transparent 18%,
-        hsl(191 58% 6% / 0.68) 100%
+        hsl(var(--palette-midnight) / 0.65) 100%
       ),
       linear-gradient(
         102deg,
-        hsl(157 50% 6% / 0.48) 0%,
-        hsl(260 22% 12% / 0.32) 100%
+        hsl(var(--palette-dark-green) / 0.45) 0%,
+        hsl(var(--palette-grape) / 0.24) 100%
       );
   }
 
@@ -403,8 +448,8 @@
     box-shadow:
       var(--shadow-elegant),
       0 0 0 1px hsl(var(--accent) / 0.12),
-      inset 0 1px 0 hsl(55 92% 98% / 0.55),
-      inset 0 -1px 0 hsl(157 50% 12% / 0.06);
+      inset 0 1px 0 hsl(var(--palette-beige) / 0.55),
+      inset 0 -1px 0 hsl(var(--palette-dark-green) / 0.06);
     border: 1px solid hsl(var(--border) / 0.72);
     background-image: var(--gradient-panel);
     backdrop-filter: blur(14px);
@@ -429,7 +474,7 @@
         var(--shadow-elegant),
         0 0 0 1px hsl(var(--accent) / 0.2),
         0 0 48px hsl(var(--accent) / 0.12),
-        inset 0 1px 0 hsl(55 90% 98% / 0.62);
+        inset 0 1px 0 hsl(var(--palette-pink-diamond) / 0.52);
     }
   }
 
@@ -439,23 +484,27 @@
     background: linear-gradient(
       165deg,
       hsl(var(--card) / 0.72) 0%,
-      hsl(55 48% 93% / 0.62) 100%
+      hsl(var(--palette-matcha) / 0.62) 100%
     );
     border: 1px solid hsl(var(--primary) / 0.14);
     box-shadow:
-      inset 0 2px 0 hsl(55 88% 97% / 0.48),
-      0 6px 22px hsl(157 50% 8% / 0.08);
+      inset 0 2px 0 hsl(var(--palette-pink-diamond) / 0.45),
+      0 6px 22px hsl(var(--palette-dark-green) / 0.07);
     backdrop-filter: blur(12px);
   }
 
   /** CTA música / enlaces externos en tono bosque — sin verde chillón */
   .btn-enchant-music {
     @apply rounded-full px-8 font-semibold tracking-wide shadow-soft text-primary-foreground;
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(191 73% 17%) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--palette-midnight)) 0%,
+      hsl(var(--palette-dark-green)) 100%
+    );
     box-shadow:
-      inset 0 1px 0 hsl(55 70% 96% / 0.18),
-      0 0 0 1px hsl(var(--accent) / 0.38),
-      0 12px 32px hsl(157 55% 8% / 0.32);
+      inset 0 1px 0 hsl(var(--palette-beige) / 0.2),
+      0 0 0 1px hsl(var(--palette-rosy-brown) / 0.45),
+      0 12px 32px hsl(var(--palette-dark-green) / 0.28);
     transition:
       transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 0.35s ease;
@@ -464,9 +513,9 @@
   .btn-enchant-music:hover {
     filter: brightness(1.06);
     box-shadow:
-      inset 0 1px 0 hsl(55 70% 98% / 0.24),
-      0 0 0 2px hsl(var(--accent) / 0.45),
-      0 14px 40px hsl(157 58% 6% / 0.38);
+      inset 0 1px 0 hsl(var(--palette-aquamarine) / 0.22),
+      0 0 0 2px hsl(var(--palette-grape) / 0.45),
+      0 14px 40px hsl(var(--palette-midnight) / 0.32);
     transform: translateY(-2px);
   }
 
@@ -474,10 +523,10 @@
   .btn-brand-whatsapp {
     @apply text-white font-semibold shadow-soft rounded-xl;
     background: linear-gradient(135deg, #1e8a55 0%, #147a52 88%, #0f6844 100%);
-    border: 1px solid hsl(154 62% 18% / 0.95);
+    border: 1px solid hsl(var(--palette-moss) / 0.85);
     box-shadow:
-      inset 0 1px 0 hsl(120 52% 100% / 0.28),
-      0 6px 20px hsl(154 72% 8% / 0.42);
+      inset 0 1px 0 hsl(var(--palette-matcha) / 0.35),
+      0 6px 20px hsl(var(--palette-dark-green) / 0.35);
     transition:
       transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       filter 0.25s ease;
@@ -541,7 +590,7 @@
 @media print {
   html {
     scroll-behavior: auto;
-    background: hsl(55 58% 93%);
+    background: hsl(var(--palette-beige) / 1);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -564,8 +613,8 @@
   .hero-fairy-overlay {
     background: linear-gradient(
       to bottom,
-      hsl(157 45% 8% / 0.5) 0%,
-      hsl(191 52% 8% / 0.58) 100%
+      hsl(var(--palette-dark-green) / 0.48) 0%,
+      hsl(var(--palette-midnight) / 0.55) 100%
     );
   }
 

@@ -49,10 +49,24 @@ export default {
           foreground: "hsl(var(--rose-foreground))",
         },
         fairyPink: {
-          DEFAULT: "hsl(var(--fairy-pink))",
+          DEFAULT: "hsl(var(--fairy-pink) / <alpha-value>)",
         },
         fairyViolet: {
-          DEFAULT: "hsl(var(--fairy-violet))",
+          DEFAULT: "hsl(var(--fairy-violet) / <alpha-value>)",
+        },
+        forest: {
+          darkGreen: "hsl(var(--palette-dark-green) / <alpha-value>)",
+          moss: "hsl(var(--palette-moss) / <alpha-value>)",
+          beige: "hsl(var(--palette-beige) / <alpha-value>)",
+          rosyBrown: "hsl(var(--palette-rosy-brown) / <alpha-value>)",
+          midnight: "hsl(var(--palette-midnight) / <alpha-value>)",
+        },
+        pastel: {
+          matcha: "hsl(var(--palette-matcha) / <alpha-value>)",
+          botanist: "hsl(var(--palette-botanist) / <alpha-value>)",
+          aquamarine: "hsl(var(--palette-aquamarine) / <alpha-value>)",
+          grape: "hsl(var(--palette-grape) / <alpha-value>)",
+          pinkDiamond: "hsl(var(--palette-pink-diamond) / <alpha-value>)",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
