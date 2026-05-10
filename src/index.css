@@ -8,63 +8,68 @@
 
 @layer base {
   :root {
-    /* Sincronizado con enchantedForestCssVars (InvitationRomantic lo aplica al montar) */
-    --background: 36 42% 81%;
-    --foreground: 154 36% 13%;
+    /* Rosa + violeta + bosque — sync con enchantedForestCssVars */
+    --background: 55 68% 90%;
+    --foreground: 157 67% 12%;
 
-    --card: 34 48% 89%;
-    --card-foreground: 154 34% 14%;
+    --card: 52 62% 93%;
+    --card-foreground: 157 67% 12%;
 
-    --popover: 36 46% 91%;
-    --popover-foreground: 154 34% 14%;
+    --popover: 52 58% 94%;
+    --popover-foreground: 157 67% 12%;
 
-    --primary: 154 34% 18%;
-    --primary-foreground: 42 78% 97%;
+    --primary: 191 73% 23%;
+    --primary-foreground: 55 68% 96%;
 
-    --secondary: 92 28% 74%;
-    --secondary-foreground: 154 30% 15%;
+    --secondary: 80 28% 85%;
+    --secondary-foreground: 157 50% 16%;
 
-    --muted: 90 24% 72%;
-    --muted-foreground: 148 22% 26%;
+    --muted: 288 14% 86%;
+    --muted-foreground: 285 22% 32%;
 
-    --accent: 34 72% 46%;
-    --accent-foreground: 154 40% 11%;
+    --accent: 340 54% 72%;
+    --accent-foreground: 324 42% 18%;
 
-    --rose: 28 44% 88%;
-    --rose-foreground: 154 28% 17%;
+    --rose: 320 62% 92%;
+    --rose-foreground: 295 38% 22%;
 
     --destructive: 0 72% 50%;
-    --destructive-foreground: 43 72% 98%;
+    --destructive-foreground: 55 68% 97%;
 
-    --border: 34 32% 62%;
-    --input: 36 36% 72%;
-    --ring: 154 30% 28%;
+    --border: 285 22% 76%;
+    --input: 288 18% 82%;
+    --ring: 252 62% 58%;
+
+    --fairy-pink: 335 72% 91%;
+    --fairy-violet: 252 76% 84%;
 
     --radius: 1.25rem;
 
     --gradient-romantic: linear-gradient(
       168deg,
-      hsl(36 44% 82%) 0%,
-      hsl(92 26% 74% / 0.65) 40%,
-      hsl(154 24% 74% / 0.55) 100%
+      hsl(var(--fairy-pink) / 0.95) 0%,
+      hsl(var(--fairy-violet) / 0.55) 38%,
+      hsl(80 26% 86% / 0.92) 58%,
+      hsl(191 38% 86% / 0.72) 100%
     );
     --gradient-gold: linear-gradient(
       130deg,
-      hsl(40 58% 54%) 0%,
-      hsl(34 48% 42%) 100%
+      hsl(340 58% 76%) 0%,
+      hsl(252 62% 72%) 48%,
+      hsl(191 73% 28%) 100%
     );
     --gradient-panel: linear-gradient(
       152deg,
       hsl(var(--card) / 0.78) 0%,
-      hsl(34 42% 92% / 0.68) 52%,
-      hsl(92 22% 87% / 0.72) 100%
+      hsl(var(--fairy-pink) / 0.55) 45%,
+      hsl(var(--fairy-violet) / 0.35) 100%
     );
 
-    --shadow-elegant: 0 12px 42px -16px hsl(152 35% 12% / 0.28),
-      0 4px 22px -12px hsl(38 40% 28% / 0.12);
-    --shadow-soft: 0 6px 26px -10px hsl(152 26% 14% / 0.16);
-    --shadow-glow: 0 0 48px hsl(40 58% 52% / 0.26),
-      0 0 24px hsl(90 32% 74% / 0.45);
+    --shadow-elegant: 0 12px 42px -16px hsl(157 55% 8% / 0.26),
+      0 4px 22px -12px hsl(285 42% 28% / 0.14);
+    --shadow-soft: 0 6px 26px -10px hsl(300 35% 12% / 0.11);
+    --shadow-glow: 0 0 52px hsl(340 55% 65% / 0.35),
+      0 0 36px hsl(252 70% 70% / 0.28);
 
     --transition-smooth: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -175,8 +180,9 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(var(--accent) / 0.45) 42%,
-      hsl(var(--primary) / 0.3) 58%,
+      hsl(var(--accent) / 0.58) 32%,
+      hsl(var(--fairy-violet) / 0.65) 50%,
+      hsl(var(--primary) / 0.32) 68%,
       transparent 100%
     );
     opacity: 0.65;
@@ -191,11 +197,14 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(var(--accent) / 0.5) 46%,
-      hsl(var(--secondary)) 100%,
+      hsl(var(--accent) / 0.65) 36%,
+      hsl(var(--fairy-violet) / 0.75) 58%,
+      hsl(var(--secondary)) 94%,
       transparent 100%
     );
-    box-shadow: 0 0 18px hsl(var(--accent) / 0.2);
+    box-shadow:
+      0 0 18px hsl(var(--accent) / 0.22),
+      0 0 28px hsl(252 70% 70% / 0.14);
   }
 
   @media (min-width: 768px) {
@@ -213,7 +222,7 @@
   }
 
   .text-shadow-soft {
-    text-shadow: 0 2px 12px hsl(152 40% 8% / 0.25);
+    text-shadow: 0 2px 12px hsl(157 55% 8% / 0.22);
   }
 
   .fairy-garland-row {
@@ -242,18 +251,20 @@
     }
   }
 
-  /** Página · atardecer en el bosque + pergamino (menos plano, más atmósfera) */
+  /** Página · crema nenúfar + fondos bosque / medianoche sutiles */
   .enchanted-invitation {
     position: relative;
     background:
-      radial-gradient(ellipse 120% 80% at 50% -20%, hsl(34 62% 88% / 0.92) 0%, transparent 55%),
-      radial-gradient(ellipse 90% 60% at 100% 30%, hsl(154 38% 28% / 0.09) 0%, transparent 50%),
-      radial-gradient(ellipse 80% 50% at 0% 70%, hsl(34 72% 48% / 0.06) 0%, transparent 45%),
+      radial-gradient(ellipse 120% 80% at 50% -20%, hsl(55 72% 94% / 0.92) 0%, transparent 55%),
+      radial-gradient(ellipse 90% 60% at 100% 28%, hsl(191 42% 32% / 0.09) 0%, transparent 50%),
+      radial-gradient(ellipse 82% 52% at 2% 72%, hsl(80 36% 48% / 0.07) 0%, transparent 46%),
+      radial-gradient(ellipse 70% 40% at 94% 88%, hsl(252 58% 78% / 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 55% 45% at 8% 20%, hsl(340 62% 88% / 0.22) 0%, transparent 50%),
       linear-gradient(
         198deg,
         hsl(var(--background)) 0%,
-        hsl(32 44% 78%) 38%,
-        hsl(154 26% 76%) 72%,
+        hsl(55 54% 86%) 40%,
+        hsl(191 28% 84% / 0.92) 74%,
         hsl(var(--secondary)) 100%
       );
     overflow-x: clip;
@@ -268,10 +279,10 @@
     z-index: 0;
     opacity: 0.42;
     background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cpath d='M82 154 Q118 96 138 72 M96 154 Q134 118 154 104 M112 154 Q144 142 154 126' stroke='%231a3828' stroke-width='0.4' fill='none' opacity='0.07'/%3E%3Cpath d='M22 154 Q8 118 52 104 M74 154 Q46 138 74 132' stroke='%233d2a14' stroke-width='0.35' fill='none' opacity='0.06'/%3E%3C/svg%3E"),
-      radial-gradient(hsl(154 26% 32% / 0.065) 0.85px, transparent 0.85px),
-      radial-gradient(ellipse at 72% -8%, hsl(34 54% 86% / 0.48) 0%, transparent 42%),
-      radial-gradient(ellipse at 12% 100%, hsl(154 42% 24% / 0.085) 0%, transparent 48%);
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cpath d='M82 154 Q118 96 138 72 M96 154 Q134 118 154 104 M112 154 Q144 142 154 126' stroke='%230A3323' stroke-width='0.4' fill='none' opacity='0.065'/%3E%3Cpath d='M22 154 Q8 118 52 104 M74 154 Q46 138 74 132' stroke='%23105666' stroke-width='0.35' fill='none' opacity='0.055'/%3E%3C/svg%3E"),
+      radial-gradient(hsl(157 34% 30% / 0.058) 0.85px, transparent 0.85px),
+      radial-gradient(ellipse at 72% -8%, hsl(55 58% 91% / 0.42) 0%, transparent 42%),
+      radial-gradient(ellipse at 12% 100%, hsl(191 58% 22% / 0.065) 0%, transparent 48%);
     background-size:
       180px 180px,
       11px 11px,
@@ -289,13 +300,13 @@
     z-index: 0;
     opacity: 0.36;
     background-image:
-      radial-gradient(2px 2px at 7% 18%, hsl(42 92% 90% / 0.92) 48%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 93% 12%, hsl(48 90% 88% / 0.82) 48%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 82% 64%, hsl(38 82% 86% / 0.72) 48%, transparent 52%),
-      radial-gradient(2px 2px at 18% 76%, hsl(92 64% 86% / 0.62) 48%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 44% 38%, hsl(40 88% 90% / 0.68) 48%, transparent 52%),
-      radial-gradient(2px 2px at 58% 88%, hsl(36 76% 86% / 0.62) 48%, transparent 52%),
-      radial-gradient(120% 42% at 50% -5%, hsl(42 94% 96% / 0.34) 0%, transparent 100%);
+      radial-gradient(2px 2px at 7% 18%, hsl(55 92% 95% / 0.88) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 93% 12%, hsl(191 76% 92% / 0.62) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 82% 64%, hsl(252 74% 86% / 0.72) 48%, transparent 52%),
+      radial-gradient(2px 2px at 18% 76%, hsl(80 58% 88% / 0.52) 48%, transparent 52%),
+      radial-gradient(1.5px 1.5px at 44% 38%, hsl(55 88% 94% / 0.62) 48%, transparent 52%),
+      radial-gradient(2px 2px at 58% 88%, hsl(330 72% 90% / 0.72) 48%, transparent 52%),
+      radial-gradient(120% 42% at 50% -5%, hsl(55 85% 97% / 0.32) 0%, transparent 100%);
     animation: star-drift calc(var(--enchant-twinkle-duration) + 4s) ease-in-out infinite;
   }
 
@@ -316,13 +327,13 @@
     overflow: hidden;
     opacity: 0.42;
     background-image:
-      radial-gradient(circle at 52% 48%, hsl(43 94% 78% / 0.75) 0 1px, transparent 7px),
-      radial-gradient(circle at 82% 32%, hsl(88 70% 82% / 0.52) 0 1px, transparent 7px),
-      radial-gradient(circle at 24% 58%, hsl(43 90% 78% / 0.62) 0 1px, transparent 7px),
-      radial-gradient(circle at 62% 82%, hsl(40 82% 76% / 0.42) 0 1px, transparent 7px),
-      radial-gradient(circle at 14% 72%, hsl(154 40% 74% / 0.38) 0 1px, transparent 7px),
-      radial-gradient(circle at 46% 22%, hsl(45 94% 88% / 0.52) 0 1px, transparent 7px),
-      radial-gradient(circle at 90% 54%, hsl(46 92% 84% / 0.4) 0 1px, transparent 7px);
+      radial-gradient(circle at 52% 48%, hsl(55 88% 86% / 0.62) 0 1px, transparent 7px),
+      radial-gradient(circle at 82% 32%, hsl(80 42% 72% / 0.46) 0 1px, transparent 7px),
+      radial-gradient(circle at 26% 58%, hsl(191 62% 78% / 0.42) 0 1px, transparent 7px),
+      radial-gradient(circle at 62% 82%, hsl(266 62% 80% / 0.52) 0 1px, transparent 7px),
+      radial-gradient(circle at 14% 72%, hsl(157 42% 68% / 0.34) 0 1px, transparent 7px),
+      radial-gradient(circle at 46% 22%, hsl(330 76% 90% / 0.58) 0 1px, transparent 7px),
+      radial-gradient(circle at 90% 54%, hsl(55 74% 92% / 0.38) 0 1px, transparent 7px);
     animation: forest-drift 26s ease-in-out infinite,
       firefly-twinkle 5.8s ease-in-out infinite alternate;
   }
@@ -334,15 +345,15 @@
     overflow: hidden;
     z-index: 8;
     background-image:
-      radial-gradient(circle at 40% 22%, hsl(48 92% 95% / 0.42) 0%, transparent 30%),
-      radial-gradient(1.75px 1.75px at 16% 34%, hsl(48 94% 99% / 0.72) 45%, transparent 55%),
-      radial-gradient(1.5px 1.5px at 92% 24%, hsl(92 80% 95% / 0.62) 50%, transparent 55%),
-      radial-gradient(2px 2px at 70% 80%, hsl(40 86% 86% / 0.52) 50%, transparent 55%);
+      radial-gradient(circle at 40% 22%, hsl(55 92% 96% / 0.38) 0%, transparent 30%),
+      radial-gradient(1.75px 1.75px at 16% 34%, hsl(191 72% 97% / 0.62) 45%, transparent 55%),
+      radial-gradient(1.5px 1.5px at 92% 24%, hsl(255 82% 90% / 0.72) 50%, transparent 55%),
+      radial-gradient(2px 2px at 70% 80%, hsl(55 76% 92% / 0.46) 50%, transparent 55%);
     animation: enchant-shimmer calc(var(--enchant-twinkle-duration) + 3s) ease-in-out infinite;
   }
 
   .hero-bosque-photo {
-    filter: saturate(1.18) hue-rotate(18deg) contrast(1.08) brightness(0.88);
+    filter: saturate(1.12) hue-rotate(-6deg) contrast(1.06) brightness(0.89);
     will-change: filter;
   }
 
@@ -353,28 +364,32 @@
     pointer-events: none;
     background: radial-gradient(
         ellipse 95% 75% at 50% 36%,
-        hsl(148 38% 14% / 0.31) 0%,
+        hsl(157 58% 8% / 0.34) 0%,
         transparent 62%
       ),
-      linear-gradient(180deg, hsl(148 32% 8% / 0.43) 0%, hsl(90 26% 6% / 0.42) 100%);
+      linear-gradient(
+        180deg,
+        hsl(191 52% 6% / 0.42) 0%,
+        hsl(80 22% 8% / 0.38) 100%
+      );
     mix-blend-mode: multiply;
   }
 
   .hero-fairy-overlay {
     background: linear-gradient(
         to bottom,
-        hsl(152 42% 4% / 0.52) 0%,
+        hsl(157 55% 5% / 0.5) 0%,
         transparent 36%
       ),
       linear-gradient(
         to bottom,
         transparent 18%,
-        hsl(154 46% 4% / 0.72) 100%
+        hsl(191 58% 6% / 0.68) 100%
       ),
       linear-gradient(
         102deg,
-        hsl(154 44% 5% / 0.54) 0%,
-        hsl(286 26% 8% / 0.36) 100%
+        hsl(157 50% 6% / 0.48) 0%,
+        hsl(260 22% 12% / 0.32) 100%
       );
   }
 
@@ -388,8 +403,8 @@
     box-shadow:
       var(--shadow-elegant),
       0 0 0 1px hsl(var(--accent) / 0.12),
-      inset 0 1px 0 hsl(43 92% 100% / 0.55),
-      inset 0 -1px 0 hsl(154 34% 12% / 0.06);
+      inset 0 1px 0 hsl(55 92% 98% / 0.55),
+      inset 0 -1px 0 hsl(157 50% 12% / 0.06);
     border: 1px solid hsl(var(--border) / 0.72);
     background-image: var(--gradient-panel);
     backdrop-filter: blur(14px);
@@ -414,7 +429,7 @@
         var(--shadow-elegant),
         0 0 0 1px hsl(var(--accent) / 0.2),
         0 0 48px hsl(var(--accent) / 0.12),
-        inset 0 1px 0 hsl(43 76% 100% / 0.65);
+        inset 0 1px 0 hsl(55 90% 98% / 0.62);
     }
   }
 
@@ -424,23 +439,23 @@
     background: linear-gradient(
       165deg,
       hsl(var(--card) / 0.72) 0%,
-      hsl(34 42% 90% / 0.62) 100%
+      hsl(55 48% 93% / 0.62) 100%
     );
     border: 1px solid hsl(var(--primary) / 0.14);
     box-shadow:
-      inset 0 2px 0 hsl(43 92% 100% / 0.52),
-      0 6px 22px hsl(154 38% 8% / 0.07);
+      inset 0 2px 0 hsl(55 88% 97% / 0.48),
+      0 6px 22px hsl(157 50% 8% / 0.08);
     backdrop-filter: blur(12px);
   }
 
   /** CTA música / enlaces externos en tono bosque — sin verde chillón */
   .btn-enchant-music {
     @apply rounded-full px-8 font-semibold tracking-wide shadow-soft text-primary-foreground;
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(154 34% 16%) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(191 73% 17%) 100%);
     box-shadow:
-      inset 0 1px 0 hsl(43 80% 100% / 0.22),
-      0 0 0 1px hsl(var(--accent) / 0.42),
-      0 12px 32px hsl(152 40% 8% / 0.35);
+      inset 0 1px 0 hsl(55 70% 96% / 0.18),
+      0 0 0 1px hsl(var(--accent) / 0.38),
+      0 12px 32px hsl(157 55% 8% / 0.32);
     transition:
       transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 0.35s ease;
@@ -449,9 +464,9 @@
   .btn-enchant-music:hover {
     filter: brightness(1.06);
     box-shadow:
-      inset 0 1px 0 hsl(43 80% 100% / 0.28),
-      0 0 0 2px hsl(var(--accent) / 0.5),
-      0 14px 40px hsl(152 42% 6% / 0.42);
+      inset 0 1px 0 hsl(55 70% 98% / 0.24),
+      0 0 0 2px hsl(var(--accent) / 0.45),
+      0 14px 40px hsl(157 58% 6% / 0.38);
     transform: translateY(-2px);
   }
 
@@ -526,7 +541,7 @@
 @media print {
   html {
     scroll-behavior: auto;
-    background: hsl(38 42% 96%);
+    background: hsl(55 58% 93%);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -549,8 +564,8 @@
   .hero-fairy-overlay {
     background: linear-gradient(
       to bottom,
-      hsl(152 34% 8% / 0.52) 0%,
-      hsl(152 38% 5% / 0.62) 100%
+      hsl(157 45% 8% / 0.5) 0%,
+      hsl(191 52% 8% / 0.58) 100%
     );
   }
 

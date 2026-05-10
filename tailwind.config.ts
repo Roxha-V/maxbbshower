@@ -48,6 +48,12 @@ export default {
           DEFAULT: "hsl(var(--rose))",
           foreground: "hsl(var(--rose-foreground))",
         },
+        fairyPink: {
+          DEFAULT: "hsl(var(--fairy-pink))",
+        },
+        fairyViolet: {
+          DEFAULT: "hsl(var(--fairy-violet))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

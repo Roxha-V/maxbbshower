@@ -27,32 +27,37 @@ export interface ThemeConfig {
 }
 
 /**
- * Tokens HSL sin envolver — aplicados por JS sobre el documentElement.
- * Una sola paleta “bosque encantado · editorial · cálida” + buen contraste.
+ * Tokens HSL — InvitationRomantic los inyecta en :root.
+ * Rosa + violeta legibles sobre crema (#EFCCEA / #A1A1F7 inspiración) + bosque (#0A3323 · #105666 · #839958 · #F7F4D5).
  */
-/** Pergamino cálido · musgo profundo · luciérnaga ámbar · buen contraste */
 export const enchantedForestCssVars: Record<string, string> = {
-  '--background': '36 42% 81%',
-  '--foreground': '154 36% 13%',
-  '--card': '34 48% 89%',
-  '--card-foreground': '154 34% 14%',
-  '--popover': '36 46% 91%',
-  '--popover-foreground': '154 34% 14%',
-  '--primary': '154 34% 18%',
-  '--primary-foreground': '42 78% 97%',
-  '--secondary': '92 28% 74%',
-  '--secondary-foreground': '154 30% 15%',
-  '--muted': '90 24% 72%',
-  '--muted-foreground': '148 22% 26%',
-  '--accent': '34 72% 46%',
-  '--accent-foreground': '154 40% 11%',
+  '--background': '55 68% 90%',
+  '--foreground': '157 67% 12%',
+  '--card': '52 62% 93%',
+  '--card-foreground': '157 67% 12%',
+  '--popover': '52 58% 94%',
+  '--popover-foreground': '157 67% 12%',
+  '--primary': '191 73% 23%',
+  '--primary-foreground': '55 68% 96%',
+  '--secondary': '80 28% 85%',
+  '--secondary-foreground': '157 50% 16%',
+  '--muted': '288 14% 86%',
+  '--muted-foreground': '285 22% 32%',
+  /* Rosa más claro tipo “Pink Diamond”; se nota en títulos, divisores y brillos */
+  '--accent': '340 54% 72%',
+  '--accent-foreground': '324 42% 18%',
   '--destructive': '0 72% 50%',
-  '--destructive-foreground': '43 72% 98%',
-  '--border': '34 32% 62%',
-  '--input': '36 36% 72%',
-  '--ring': '154 30% 28%',
-  '--rose': '28 44% 88%',
-  '--rose-foreground': '154 28% 17%'
+  '--destructive-foreground': '55 68% 97%',
+  /* Borde leve violeta-gris para que entre el violeta sin chillar */
+  '--border': '285 22% 76%',
+  '--input': '288 18% 82%',
+  /* Anillo violeta Grape Soda suavizado */
+  '--ring': '252 62% 58%',
+  '--rose': '320 62% 92%',
+  '--rose-foreground': '295 38% 22%',
+  /* Capas mágicas (CSS sólo — ver index.css) */
+  '--fairy-pink': '335 72% 91%',
+  '--fairy-violet': '252 76% 84%'
 };
 
 export const designThemes: Record<DesignTheme, ThemeConfig> = {
@@ -129,15 +134,15 @@ export const designThemes: Record<DesignTheme, ThemeConfig> = {
     id: 'enchantedForest',
     name: 'Bosque mágico cálido',
     description:
-      'Verde bosque profundo, salvia suave, lino, dorado luciérnaga y tierra — invitación cálida tipo bosque ilustrado',
+      'Crema bosque · medianoche teal · rosa claro (#EFCCEA vibes) · lavanda (#A1A1F7 vibes) · musgo',
     preview: '/images/mama-max-panza.png',
     colors: {
-      primary: '154 34% 18%',
-      secondary: '92 28% 74%',
-      accent: '34 72% 46%',
-      background: '36 42% 81%',
-      foreground: '154 36% 13%',
-      muted: '90 24% 72%'
+      primary: '191 73% 23%',
+      secondary: '80 27% 47%',
+      accent: '340 54% 72%',
+      background: '55 68% 90%',
+      foreground: '157 67% 12%',
+      muted: '288 14% 86%'
     },
     fonts: {
       display: 'Cormorant Garamond',
