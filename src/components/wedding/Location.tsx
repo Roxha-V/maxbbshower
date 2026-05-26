@@ -29,8 +29,10 @@ const Location = () => {
           className="text-center mb-8 md:mb-12 lg:mb-14"
         >
           <MapPin className="w-11 h-11 sm:w-12 sm:h-12 text-primary mx-auto mb-4 md:mb-6 opacity-95 drop-shadow-[0_3px_10px_hsl(var(--primary)/0.2)]" strokeWidth={1.4} />
-          <h2 className="invite-section-title mb-4">Cómo llegar al bosque</h2>
-          <p className="invite-section-lead">Un rincón cálido donde celebraremos a Max</p>
+          <h2 className="invite-section-title mb-4">
+            {weddingConfig.sectionCopy.locationTitle}
+          </h2>
+          <p className="invite-section-lead">{weddingConfig.sectionCopy.locationSubtitle}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-10 items-start min-w-0">

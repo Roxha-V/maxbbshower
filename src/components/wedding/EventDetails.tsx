@@ -42,15 +42,21 @@ const EventDetails = () => {
                 <div>
                   <p className="font-body text-foreground">{ceremony.date}</p>
                   <p className="font-body text-lg font-semibold text-primary">{ceremony.time}</p>
+                  {'arrivalNote' in ceremony && ceremony.arrivalNote ? (
+                    <p className="font-body text-sm text-foreground/82 mt-1.5 font-medium leading-relaxed">
+                      {ceremony.arrivalNote}
+                    </p>
+                  ) : null}
                 </div>
               </div>
-              <div className="flex gap-3 justify-start items-start text-left max-w-lg">
-                <MapPin className="w-5 h-5 text-primary/70 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-body font-semibold text-foreground">{ceremony.venue}</p>
-                  <p className="font-body text-sm text-foreground/78 leading-relaxed font-medium">{ceremony.address}</p>
+              {'physicalLocation' in ceremony && ceremony.physicalLocation ? (
+                <div className="flex gap-3 justify-start items-start text-left max-w-lg">
+                  <MapPin className="w-5 h-5 text-primary/70 shrink-0 mt-0.5" />
+                  <p className="font-body text-sm sm:text-base text-foreground/88 leading-relaxed font-semibold">
+                    {ceremony.physicalLocation}
+                  </p>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
         </motion.div>

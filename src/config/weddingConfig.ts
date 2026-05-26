@@ -85,7 +85,7 @@ export const weddingConfig = {
     title:
       import.meta.env.VITE_HERO_TITLE ||
       import.meta.env.VITE_HERO_SUBTITLE_LINE ||
-      "Baby Shower · Bosque Encantado 🌿✨",
+      "Baby Shower de Max 🌿✨",
 
     /** Líneas mágicas bajo el nombre (reemplazan textos tipo “biblia” solo en nomenclatura de env legacy) */
     taglineLead:
@@ -202,15 +202,19 @@ export const weddingConfig = {
       time:
         import.meta.env.VITE_EVENT_TIME ||
         import.meta.env.VITE_CEREMONY_TIME ||
-        "16:00 hs",
+        "15:00 hs",
+      arrivalNote:
+        import.meta.env.VITE_EVENT_ARRIVAL_NOTE?.trim() ||
+        "Te esperamos a las 15:00 hs — por favor, llegá puntual 💚",
       venue:
         import.meta.env.VITE_EVENT_VENUE ||
         import.meta.env.VITE_CEREMONY_VENUE ||
-        "Bosque Encantado - Villa Mágica",
+        "Bosque encantado",
       address:
-        import.meta.env.VITE_EVENT_ADDRESS ||
-        import.meta.env.VITE_CEREMONY_ADDRESS ||
-        "Dirección detallada — editar"
+        (import.meta.env.VITE_EVENT_ADDRESS || import.meta.env.VITE_CEREMONY_ADDRESS || "").trim(),
+      physicalLocation:
+        import.meta.env.VITE_EVENT_PHYSICAL_LOCATION?.trim() ||
+        "Mira Cielos — Ibarbálz 1331, X5004 Córdoba"
     },
     reception: {
       title: import.meta.env.VITE_RECEPTION_TITLE || "Encuentro",
@@ -236,19 +240,18 @@ export const weddingConfig = {
   location: {
     venue:
       import.meta.env.VITE_LOCATION_VENUE?.trim() ||
-      "Bosque Encantado - Villa Mágica",
+      "Mira Cielos",
     address:
       import.meta.env.VITE_LOCATION_ADDRESS?.trim() ||
-      import.meta.env.VITE_EVENT_ADDRESS ||
-      "Ubicación de ejemplo — editar en .env (VITE_LOCATION_ADDRESS)",
+      "Ibarbálz 1331, General Paz, Córdoba",
     mapUrl: import.meta.env.VITE_LOCATION_MAP_URL || "",
     mapEmbedUrl: import.meta.env.VITE_LOCATION_MAP_EMBED_URL || "",
     directions:
       import.meta.env.VITE_LOCATION_DIRECTIONS ||
-      "Indicaciones y estacionamiento (editá este texto cuando tengáis el lugar cerrado).",
+      "Hay estacionamiento. Si necesitás ayuda con el acceso, escribinos por WhatsApp.",
     coordinates: {
-      lat: parseFloat(import.meta.env.VITE_LOCATION_LAT || "-31.4"),
-      lng: parseFloat(import.meta.env.VITE_LOCATION_LNG || "-64.2")
+      lat: parseFloat(import.meta.env.VITE_LOCATION_LAT || "-31.407736"),
+      lng: parseFloat(import.meta.env.VITE_LOCATION_LNG || "-64.173544")
     }
   },
 
@@ -372,6 +375,16 @@ export const weddingConfig = {
     mercadoLibreUrl: import.meta.env.VITE_GIFTS_MERCADO_LIBRE_URL || "",
     registryUrl:
       (import.meta.env.VITE_GIFTS_REGISTRY_URL || import.meta.env.VITE_GIFT_LIST_URL || "").trim(),
+    registryTitle:
+      import.meta.env.VITE_GIFTS_REGISTRY_TITLE?.trim() || "Wish list de Max",
+    registryDescription:
+      import.meta.env.VITE_GIFTS_REGISTRY_DESCRIPTION?.trim() ||
+      "Ideas de regalos en Pinterest — si querés sumar un detalle, acá van algunas sugerencias 💚",
+    paletteNote:
+      import.meta.env.VITE_GIFTS_PALETTE_NOTE?.trim() ||
+      "Si elegís envoltorio, tarjetas o detalles decorativos, nos encantarían tonos de esta paleta del bosque (verdes, pasteles y rosas suaves) 💚",
+    registryButtonLabel:
+      import.meta.env.VITE_GIFTS_REGISTRY_BUTTON_LABEL?.trim() || "Ver wish list en Pinterest",
     bankTransfer: {
       enabled: import.meta.env.VITE_BANK_TRANSFER_ENABLED !== "false",
       alias:
@@ -402,9 +415,10 @@ export const weddingConfig = {
   rsvp: {
     enabled: import.meta.env.VITE_RSVP_ENABLED !== "false",
     deadline: import.meta.env.VITE_RSVP_DEADLINE || "2026-07-01",
-    introMessage:
+    introMessage: (
       import.meta.env.VITE_RSVP_INTRO ||
-      "Hay dos pasos: primero un WhatsApp cortito y después el formulario (ese paso sí o sí). ¡Mil gracias por ayudarnos a ordenar todo! 💚",
+      "Tu respuesta nos ayuda a organizar la merienda.\nAgradecemos que confirmes antes del 1 de julio de 2026."
+    ).replace(/\\n/g, "\n"),
 
     /** Paso 1 — solo nombre + cantidad para WhatsApp */
     whatsappStepTitle:
@@ -497,8 +511,7 @@ export const weddingConfig = {
   },
 
   socialMedia: {
-    hashtag: import.meta.env.VITE_SOCIAL_HASHTAG || "#BabyShowerMax",
-    instagram: import.meta.env.VITE_SOCIAL_INSTAGRAM || "@babyshower_max_bosque"
+    hashtag: import.meta.env.VITE_SOCIAL_HASHTAG || "#BabyShowerMax"
   },
 
   saveTheDate: {
@@ -515,7 +528,14 @@ export const weddingConfig = {
 
     eventIntro:
       import.meta.env.VITE_EVENT_INTRO ||
-      "Un solo encuentro cálido y mágico para darle la bienvenida a Max",
+      "Un solo encuentro cálido y mágico para darle la bienvenida a Max.",
+
+    locationTitle:
+      import.meta.env.VITE_LOCATION_SECTION_TITLE?.trim() || "Cómo llegar al bosque",
+
+    locationSubtitle:
+      import.meta.env.VITE_LOCATION_SECTION_LEAD?.trim() ||
+      "El encuentro es en el edificio Mira Cielos — Ibarbálz 1331, General Paz. Usá el mapa para la ruta exacta.",
 
     scheduleTitle:
       import.meta.env.VITE_SCHEDULE_SECTION_TITLE || "Agenda del encuentro",

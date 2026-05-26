@@ -16,41 +16,21 @@ YA ESTÁ (información ya cargada — solo revisar si querés cambiar algo)
   • Bebé: Max
   • Mamá y papá: Yami y Juan
   • Hermana Mia: sección activa, foto y textos de Mia
-  • Fecha y hora del evento: 26 de julio de 2026, 16:00 hs
-  • Nombre del lugar (tal como se muestra): Bosque Encantado - Villa Mágica
+  • Fecha y hora del evento: 2 de agosto de 2026 — llegada a las 15:00 hs (puntual)
+  • Tema de la fiesta (decoración): Bosque encantado — va en la tarjeta principal del evento
+  • Lugar físico (edificio): Mira Cielos — Ibarbálz 1331, X5004 Córdoba
+            (en Google Maps el pin puede tener un nombre humorístico; el link correcto es el de abajo)
+  • Mapa (Google Maps): https://maps.app.goo.gl/pvMM1joTn4KRggTB9
   • WhatsApp para confirmar: números de Yami y Juan (RSVP paso 1)
   • Playlist colaborativa en Spotify (enlace ya puesto)
-  • Mensaje familiar, pie de página, redes (#BabyShowerMax, Instagram de ejemplo)
+  • Wish list de regalos en Pinterest: https://pin.it/81UqKxDXM
+  • Alias transferencia: Bebe.Max.Ppay (titulares Yami / Juan)
+  • Mensaje familiar, pie de página, hashtag #BabyShowerMax
   • Formulario de datos en pantalla (nombre + cantidad de personas antes de WhatsApp)
   • Fecha límite de confirmación RSVP: 1° de julio de 2026
   • Vestimenta sugerida (bosque / hadas)
   • Fotos del carrusel principal (ecografía, familia con pintura, panza MAX)
   • Imagen de la sección historia y foto de fondo del pie
-
-================================================================================
-COMPLETAR — dirección y mapa (muy importante)
-================================================================================
-
-  Variable: VITE_EVENT_ADDRESS
-  Qué pedimos: Dirección completa como la van a copiar los invitados (calle, número,
-               barrio, ciudad). Hoy dice "Dirección detallada — editar".
-
-  Variable: VITE_LOCATION_ADDRESS
-  Qué pedimos: Lo mismo o una versión un poco más larga si querés aclaraciones.
-               Hoy dice "Dirección completa — editar cuando esté lista".
-
-  Variable: VITE_LOCATION_MAP_URL
-  Qué pedimos: Link corto de Google Maps (Maps → Compartir → copiar enlace).
-               Hoy es un ejemplo: https://maps.app.goo.gl/ejemplo
-
-  Variables: VITE_LOCATION_LAT y VITE_LOCATION_LNG
-  Qué pedimos: Latitud y longitud del lugar (los podés sacar desde Google Maps
-               al ubicar el pin; si cambian la dirección, actualizar estos dos números).
-               Ayudan al mapa embebido y al "Abrir en mapas".
-
-  Variable: VITE_LOCATION_DIRECTIONS
-  Qué pedimos: Texto corto con cómo llegar, estacionamiento, portón, torre,
-               referencias. Hoy dice "Indicaciones y estacionamiento (editar).".
 
 ================================================================================
 COMPLETAR — formulario obligatorio de Google (RSVP paso 2)
@@ -62,23 +42,20 @@ COMPLETAR — formulario obligatorio de Google (RSVP paso 2)
                Sin este enlace funcionando, el segundo paso de confirmación no sirve.
 
 ================================================================================
-COMPLETAR — datos bancarios / regalo (solo si van a usar transferencia)
+OPCIONAL (solo si lo quieren usar o cambiar)
 ================================================================================
 
-Si no van a publicar cuenta, pueden poner VITE_BANK_TRANSFER_ENABLED=false y
-omitir los datos abajo (hay que pedirlo a quien lleva el código).
+  Variable: VITE_LOCATION_LAT y VITE_LOCATION_LNG
+            → Ya apuntan a Ibarbálz 1331 (~ -31.407736, -64.173544). Solo cambiar si mueven el pin.
 
-  Variable: VITE_BANK_ALIAS           → CBU alias real o el que correspondan usar
-  Variable: VITE_BANK_NAME           → Nombre del banco (ej.: Banco Nación…)
-  Variable: VITE_BANK_ACCOUNT        → Tipo de cuenta / número visible si querés aclararlo
-  Variable: VITE_BANK_CBU            → CBU completo (si lo muestran; si no, dejar vacío)
-  Variable: VITE_BANK_DESTINATARIO   → Titular(es) como figura en el banco
+  Variable: VITE_LOCATION_DIRECTIONS
+            → Texto más detallado de cómo llegar, estacionamiento, portón, etc.
 
-  Hoy varios están como ejemplo o incompletos (alias ejemplo, CBU vacío).
+  Variable: VITE_EVENT_ADDRESS / VITE_LOCATION_ADDRESS
+            → Si quieren agregar calle, número y ciudad además del nombre del complejo.
 
-================================================================================
-OPCIONAL (solo si lo quieren usar)
-================================================================================
+  Variable: VITE_BANK_CBU / VITE_BANK_NAME
+            → Solo si quieren mostrar CBU o banco además del alias.
 
   Variable: VITE_GROOM_NAME          → Suele estar vacío en baby shower (OK).
 
@@ -88,10 +65,7 @@ OPCIONAL (solo si lo quieren usar)
   Variable: VITE_FAMILY_MESSAGE      → Mensaje familiar personalizado (varios párrafos);
             si no lo mandan, la página usa los textos por defecto.
 
-  Variable: VITE_LOCATION_MAP_EMBED_URL
-            → Solo si necesitan otro iframe de mapa que no sea el estándar con lat/lng.
-
-  Variable: Instagram en VITE_SOCIAL_INSTAGRAM
+  Variable: VITE_SOCIAL_HASHTAG (solo hashtag; sin Instagram)
             → Si no tienen usuario todavía, pueden dejar el de ejemplo o un guion hasta definir.
 
 ================================================================================

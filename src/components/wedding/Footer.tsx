@@ -62,14 +62,6 @@ const Footer = () => {
             {weddingConfig.socialMedia?.hashtag ? (
               <p className="font-body text-[0.9rem] text-foreground/90 sm:text-[0.9375rem]">
                 <span className="font-semibold text-foreground">{weddingConfig.socialMedia.hashtag}</span>
-                {weddingConfig.socialMedia.instagram
-                  ? (
-                      <>
-                        <span className="text-foreground/50"> · </span>
-                        <span className="text-foreground/88">{weddingConfig.socialMedia.instagram}</span>
-                      </>
-                    )
-                  : null}
               </p>
             ) : null}
 

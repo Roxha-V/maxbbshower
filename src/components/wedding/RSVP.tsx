@@ -122,9 +122,9 @@ const RSVP = () => {
         >
           <UserCheck className="w-11 h-11 sm:w-12 sm:h-12 text-primary mx-auto mb-4 md:mb-6" strokeWidth={1.35} />
           <h2 className="invite-section-title mb-4 max-w-xl mx-auto">Confirmación de asistencia</h2>
-          <p className="invite-section-lead px-2">
+          <p className="invite-section-lead px-2 whitespace-pre-line max-w-xl mx-auto">
             {weddingConfig.rsvp.introMessage ||
-              `Tu respuesta nos ayuda a organizar la merienda y los rincones del bosque. Agradecemos que confirmes antes del ${deadlineFmt}.`}
+              `Tu respuesta nos ayuda a organizar la merienda.\nAgradecemos que confirmes antes del ${deadlineFmt}.`}
           </p>
         </motion.div>
 
